@@ -14,7 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button lesson_button = findViewById(R.id.lesson_button);
+        Button crud_button = findViewById(R.id.crud_button);
 
         lesson_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Lesson.class)));
+        crud_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, CRUD.class)));
+
     }
 }
