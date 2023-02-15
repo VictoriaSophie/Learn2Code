@@ -1,3 +1,5 @@
+package com.example.learn2code;
+
 import java.util.HashMap;
 import java.util.Map;
 
