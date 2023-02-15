@@ -32,15 +32,15 @@ public class StandardQuiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_standard_quiz);
-        Intent intent = getIntent();
+        //Intent intent = getIntent();
 
         questionsAnswerMap = Questions.getQuestions();
         initView();
-        optionClickA();
-        optionClickB();
-        optionClickC();
-        optionClickD();
-
+        //optionClickA();
+//        optionClickB();
+//        optionClickC();
+//        optionClickD();
+//
         findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -61,7 +61,7 @@ public class StandardQuiz extends AppCompatActivity {
                 }
             }
         });
-
+//
         displayData();
 
     }
@@ -111,9 +111,8 @@ public class StandardQuiz extends AppCompatActivity {
     }
 
     private void optionClickA() {
-        radioButtonA.setOnClickListener( view -> {
-            txt = text1.getText().toString();
-        });
+        //radioButtonA.setText()
+        //});
     }
 
     private void initView() {
@@ -121,6 +120,10 @@ public class StandardQuiz extends AppCompatActivity {
         View radioButtonB = findViewById(R.id.radioButtonOptionA);
         View radioButtonC = findViewById(R.id.radioButtonOptionA);
         View radioButtonD = findViewById(R.id.radioButtonOptionA);
+        txt = "";
+        questions = new ArrayList<>(questionsAnswerMap.keySet());
+
+        question = findViewById(R.id.QuestionText);
 
     }
 }
