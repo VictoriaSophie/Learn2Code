@@ -1,7 +1,11 @@
 package com.example.learn2code;
 
+import android.content.Context;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class Questions {
     public static Map<String, Map<String,Boolean>> getQuestions(){
@@ -16,5 +20,24 @@ public class Questions {
 
         return questions;
 
+    }
+
+    public static Map<String,Map<String,Boolean>> getRandomQuestion(Context context, int SIZE){
+        Map<String,Map<String,Boolean>> questionsMap = new HashMap<>();
+        Map<String, Map<String, Boolean>> getQuestions;
+        getQuestions = getQuestions();
+        int size = getQuestions.size();
+
+        ArrayList<String> keyList = new ArrayList<String>(getQuestions.keySet());
+
+        while (questionsMap.size()<=SIZE){
+            Random random = new Random();
+            int randomNumber = random.nextInt(size);
+            String question = keyList.get(randomNumber);
+            if (!questionsMap.containsKey(question)){
+                questionsMap.put(question, getQuestions.get(question));
+            }
+        }
+        return questionsMap;
     }
 }
