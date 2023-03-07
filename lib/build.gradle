@@ -1,0 +1,20 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+task deleteJar(type: Delete) {
+    delete 'lib/Learn2Code.jar'
+}
+
+task createJar(type: Copy) {
+    from ('build/intermediates/bundles/release/')
+    into('lib/')
+    include('classes.jar')
+    rename('classes.jar', 'Learn2Code.jar')
+}
+
+createJar.dependsOn(deleteJar, build)

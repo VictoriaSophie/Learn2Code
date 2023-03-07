@@ -15,9 +15,12 @@ public class MainActivity extends AppCompatActivity {
 
         Button lesson_button = findViewById(R.id.lesson_button);
         Button crud_button = findViewById(R.id.crud_button);
+        Button quiz_button = findViewById(R.id.quizButton);
+        Button html_button = findViewById(R.id.htmlBasics_button);
 
         lesson_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Lesson.class)));
         crud_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, CRUD.class)));
-
+        quiz_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, StandardQuiz.class)));
+        html_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LessonOneHTML.class)));
     }
 }

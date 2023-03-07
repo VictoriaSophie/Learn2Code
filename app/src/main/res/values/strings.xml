@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Learn2Code</string>
+    <string name="questions">Questions:</string>
 </resources>

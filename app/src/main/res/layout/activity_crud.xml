@@ -7,30 +7,39 @@
     tools:context=".CRUD">
 
     <!-- enter question -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter question..."
-        android:id="@+id/edit_question"/>
 
     <!-- enter wrong answer -->
-    <EditText
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter an incorrect answer..."
-        android:id="@+id/edit_wrong_ans"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_wrong_ans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter an incorrect answer..." />
+
+        <EditText
+            android:id="@+id/edit_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter question..." />
+
+        <EditText
+            android:id="@+id/edit_right_ans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter the correct answer..." />
+
+        <Button
+            android:id="@+id/add_q_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Question" />
+    </LinearLayout>
 
     <!-- enter correct answer -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter the correct answer..."
-        android:id="@+id/edit_right_ans"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Question"
-        android:id="@+id/add_q_button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
