@@ -25,6 +25,7 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
     TextView questionTextView;
     Button ans1, ans2, ans3, ans4;
     Button submitBtn;
+    private XPDatabase xphandler;
 
     int score=0;
     int totalQuestions= Questions.question.length;
@@ -36,6 +37,7 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_standard_quiz);
 
+        xphandler = new XPDatabase(StandardQuiz.this);
         questionAmountTextView =findViewById(R.id.totalQuestions);
         questionTextView=findViewById(R.id.question);
         ans1=findViewById(R.id.AnswerOne);
@@ -75,15 +77,21 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
 
     private void finishQuiz() {
         String passStatus =  "";
+        int xp = xphandler.getXP("xp"); // get current xp value
         if (score > totalQuestions*0.60) {
             passStatus = "Passed";
+            // add 50 xp
+            xp +=50;
+            xphandler.saveXP("xp", xp); // changes xp
+
+
         }else{
             passStatus = "Failed";
         }
 
         new AlertDialog.Builder(this)
                 .setTitle(passStatus)
-                .setMessage("Score is " + score + " out of " + totalQuestions)
+                .setMessage("Score is " + score + " out of " + totalQuestions + "\n" + "Your current XP is: " + xp)
                 .setPositiveButton("Restart", (dialogInterface, i) -> restartQuiz())
                 .setCancelable(false)
                 .show();
