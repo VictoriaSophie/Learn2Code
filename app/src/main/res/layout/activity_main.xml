@@ -6,37 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/lesson_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Lesson" />
+
+        <Button
+            android:id="@+id/crud_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CRUD" />
+
+        <Button
+            android:id="@+id/quizButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Standard Quiz" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/htmlBasics_button"
+        android:layout_width="177dp"
+        android:layout_height="198dp"
+        android:text="HTML \nBasics"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/lesson_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Lesson"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="424dp" />
-
-    <Button
-        android:id="@+id/crud_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CRUD"
-        app:layout_constraintStart_toEndOf="@+id/lesson_button"
-        tools:layout_editor_absoluteY="308dp" />
-
-    <Button
-        android:id="@+id/quizButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Standard Quiz"
-        app:layout_constraintStart_toEndOf="@+id/crud_button"
-        tools:layout_editor_absoluteY="203dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
