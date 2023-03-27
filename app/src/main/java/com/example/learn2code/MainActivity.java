@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,14 +16,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button lesson_button = findViewById(R.id.lesson_button);
-        Button crud_button = findViewById(R.id.crud_button);
-        Button quiz_button = findViewById(R.id.quizButton);
         Button html_button = findViewById(R.id.htmlBasics_button);
+        ImageView backIcon = findViewById(R.id.back_icon);
 
-        lesson_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Lesson.class)));
-        crud_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, CRUD.class)));
-        quiz_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, StandardQuiz.class)));
+
         html_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LessonOneHTML.class)));
+
+        backIcon.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "You clicked the back button", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
