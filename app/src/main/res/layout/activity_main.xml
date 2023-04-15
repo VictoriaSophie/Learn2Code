@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <include layout="@layout/toolbar"/>
 
     <Button
         android:id="@+id/htmlBasics_button"
@@ -18,5 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Button" />
+
+    <include
+        layout="@layout/bottom_toolbar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
