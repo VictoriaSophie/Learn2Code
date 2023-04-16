@@ -16,6 +16,12 @@
         android:theme="@style/Theme.Learn2Code"
         tools:targetApi="31">
         <activity
+            android:name=".HTMLLessonTwo"
+            android:exported="false" />
+        <activity
+            android:name=".HTMLLessonOne"
+            android:exported="false" />
+        <activity
             android:name=".ProgrammingBasicsLesson"
             android:exported="false" />
         <activity
