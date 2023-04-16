@@ -8,6 +8,8 @@
     android:background="@color/purple_200"
     android:padding="24dp">
 
+    <include layout="@layout/bottom_toolbar" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,17 +80,8 @@
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"/>
 
-    <include
-        layout="@layout/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="623dp" />
-    "
+
+
 
 
 
@@ -178,3 +171,4 @@
 <!--    </RadioGroup>-->
 
 </RelativeLayout>
+
