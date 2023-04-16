@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button html_button = findViewById(R.id.htmlBasics_button);
 
-        html_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LessonOneHTML.class)));
+        html_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, HTMLBasicsLesson.class)));
     }
 }
