@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_home_24"
         android:backgroundTint="@color/purple_200"
-        app:layout_anchor="@id/bottomAppBar2"/>
+        app:layout_anchor="@id/bottomAppBar2"
+        android:contentDescription="Home button" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
