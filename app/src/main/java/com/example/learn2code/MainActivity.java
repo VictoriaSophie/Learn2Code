@@ -53,7 +53,4 @@ public class MainActivity extends AppCompatActivity {
         home_button.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Home button", Toast.LENGTH_LONG).show());
 
     }
-
-    private void setOnMenuItemClickListener() {
-    }
 }
