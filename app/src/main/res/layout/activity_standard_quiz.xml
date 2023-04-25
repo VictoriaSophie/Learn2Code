@@ -8,6 +8,9 @@
     android:background="@color/purple_200"
     android:padding="24dp">
 
+    <include
+        layout="@layout/bottom_toolbar"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,6 +69,7 @@
             android:text="Answer Four"
             android:textColor="@color/black"
             android:id="@+id/AnswerFour"/>
+
     </LinearLayout>
 
     <Button
@@ -76,7 +80,9 @@
         android:layout_below="@id/options"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"/>
-"
+
+
+
 
 
 
@@ -166,3 +172,4 @@
 <!--    </RadioGroup>-->
 
 </RelativeLayout>
+
