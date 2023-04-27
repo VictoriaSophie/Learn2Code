@@ -16,16 +16,19 @@
         android:theme="@style/Theme.Learn2Code"
         tools:targetApi="31">
         <activity
-            android:name=".HTMLLessonTwo"
+            android:name=".LessonCssBasics"
             android:exported="false" />
         <activity
-            android:name=".HTMLLessonOne"
+            android:name=".LessonHtmlTwo"
             android:exported="false" />
         <activity
-            android:name=".ProgrammingBasicsLesson"
+            android:name=".LessonHtmlOne"
             android:exported="false" />
         <activity
-            android:name=".HTMLBasicsLesson"
+            android:name=".LessonProgrammingBasics"
+            android:exported="false" />
+        <activity
+            android:name=".LessonHtmlBasics"
             android:exported="false" />
         <activity
             android:name=".StandardQuiz"

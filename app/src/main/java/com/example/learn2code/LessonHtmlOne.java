@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class HTMLLessonOne extends AppCompatActivity {
+public class LessonHtmlOne extends AppCompatActivity {
 
     // tags
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_htmllesson_one);
+        setContentView(R.layout.activity_lesson_html_one);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.learn2code;
+package com.example.learn2code.data;
 
 import android.content.Context;
 
