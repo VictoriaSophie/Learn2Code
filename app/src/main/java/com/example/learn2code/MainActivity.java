@@ -23,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
         Button html_button = findViewById(R.id.htmlBasics_button);
 
+        Button programming_basics= findViewById(R.id.programmingBasics_button);
+
         html_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, HTMLBasicsLesson.class)));
 
+        programming_basics.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ProgrammingBasicsLesson.class)));
     }
 
     private void setAppBar() {
