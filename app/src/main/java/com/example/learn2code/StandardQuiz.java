@@ -2,7 +2,6 @@ package com.example.learn2code;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -11,18 +10,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class StandardQuiz extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,11 +24,13 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
     Button ans1, ans2, ans3, ans4;
     Button submitBtn;
     private XPDatabase xphandler;
-
     int score=0;
-    int totalQuestions= Questions.question.length;
-    int currentQuestionIndex = 0;
+    int totalQuestions =0;
+    int questionsLeft= 0;
+    int startingQuestionIndex = 0;
     String selectedAnswer = "";
+
+    int currentQuestionIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,17 +53,33 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
         ans4.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
 
-        questionAmountTextView.setText("Total questions: " + totalQuestions);
+        Intent intent = getIntent();
+        int quizNumber = intent.getIntExtra("quizNumber", 0);
+        switch (quizNumber) {
+            case 1:
+                startingQuestionIndex = 0;
+                totalQuestions = 3;
+                break;
+            case 2:
+                startingQuestionIndex = 3;
+                totalQuestions =5;
+                break;
+            case 3:
+                startingQuestionIndex = 8;
 
+        }
+
+        questionAmountTextView.setText("Total questions: " + totalQuestions);
+        questionsLeft = totalQuestions;
+        currentQuestionIndex = startingQuestionIndex;
         loadNewQuestion();
     }
 
     private void loadNewQuestion() {
 
-        if(currentQuestionIndex== totalQuestions){
+        if(questionsLeft == 0){
             finishQuiz();
             return;
-
         }
 
         questionTextView.setText(Questions.question[currentQuestionIndex]);
@@ -76,9 +87,9 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
         ans2.setText(Questions.options[currentQuestionIndex][1]);
         ans3.setText(Questions.options[currentQuestionIndex][2]);
         ans4.setText(Questions.options[currentQuestionIndex][3]);
-
-
-
+        if (questionsLeft != totalQuestions) {
+            questionAmountTextView.setText("Questions left: " + questionsLeft);
+        }
     }
 
     private void finishQuiz() {
@@ -105,9 +116,10 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
 
     private void restartQuiz() {
         score = 0;
-        currentQuestionIndex=0;
+        questionsLeft=totalQuestions;
+        questionAmountTextView.setText("Total questions: " + totalQuestions);
+        currentQuestionIndex=startingQuestionIndex;
         loadNewQuestion();
-
     }
 
     @Override
@@ -123,6 +135,7 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
             if(selectedAnswer.equals(Questions.answers[currentQuestionIndex])){
                 score++;
             }
+            questionsLeft--;
             currentQuestionIndex++;
             loadNewQuestion(); // load new question from index +1
 
