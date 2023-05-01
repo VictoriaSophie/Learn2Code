@@ -26,9 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button programming_basics= findViewById(R.id.programmingBasics_button);
 
+        Button css_basics= findViewById(R.id.cssBasics_button);
+
         html_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LessonHtmlBasics.class)));
 
         programming_basics.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LessonProgrammingBasics.class)));
+
+        css_basics.setOnClickListener(view ->startActivity(new Intent(MainActivity.this, LessonCssBasics.class)));
     }
 
     private void setAppBar() {
