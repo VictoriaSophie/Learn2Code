@@ -22,18 +22,22 @@ public class MainActivity extends AppCompatActivity {
         setAppBar();
 
 
-        Button html_button = findViewById(R.id.htmlBasics_button);
-
         Button programming_basics= findViewById(R.id.programmingBasics_button);
-
+        Button html_button = findViewById(R.id.htmlBasics_button);
+        Button html_one = findViewById(R.id.htmlOne_button);
+        Button html_two = findViewById(R.id.htmlTwo_button);
         Button css_basics= findViewById(R.id.cssBasics_button);
+        Button javascript_basics = findViewById(R.id.javascriptBasics_button);
 
-        html_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LessonHtmlBasics.class)));
+        programming_basics.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, StandardInfoPage.class).putExtra("pageNumber", 0)));
+        html_button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, StandardInfoPage.class).putExtra("pageNumber", 1)));
+        html_one.setOnClickListener(view-> startActivity(new Intent(MainActivity.this, StandardInfoPage.class).putExtra("pageNumber", 2)));
+        css_basics.setOnClickListener(view -> startActivity(new Intent (MainActivity.this, StandardInfoPage.class).putExtra("pageNumber", 3)));
+        javascript_basics.setOnClickListener(view -> startActivity(new Intent (MainActivity.this, StandardInfoPage.class).putExtra("pageNumber", 7)));
 
-        programming_basics.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LessonProgrammingBasics.class)));
 
-        css_basics.setOnClickListener(view -> startActivity(new Intent (MainActivity.this, StandardInfoPage.class).putExtra("pageNumber", 0)));
 
+        // js basics = index 7
     }
 
     private void setAppBar() {
