@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Learn2Code"
         tools:targetApi="31">
         <activity
+            android:name=".StandardInfoPage"
+            android:exported="false" />
+        <activity
             android:name=".LessonCssBasics"
             android:exported="false" />
         <activity
