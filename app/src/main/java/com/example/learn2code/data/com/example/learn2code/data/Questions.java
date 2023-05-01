@@ -18,7 +18,10 @@ public class Questions {
             "What is HTML most commonly used for?",
             "What is the opening tag for a paragraph element?",
             "Where should <!DOCTYPE html> be placed?",
+            // html 1
             "What character is used to close tags?",
+            // js basics
+            "Which of the following is considered a programming language?"
     };
 
     public static String options[][] = {
@@ -29,7 +32,8 @@ public class Questions {
             {"Creating websites", "Machine learning", "Developing applications", "Databases"},
             {"<h1>", "<paragraph>", "p", "<p>"},
             {"Anywhere on the page", "Top of the document", "Bottom of the document", "Within an HTML tag"},
-            {"<", "!", "/", ";"},
+            {"<", "!", "/", ";"}, // html 1
+            {"CSS", "JavaScript", "HTML"}, // js b
     };
 
     public static String answers[] = {
@@ -40,7 +44,8 @@ public class Questions {
             "Creating websites",
             "<p>",
             "Top of the document",
-            "/"
+            "/", // html 1
+            "JavaScript" // javascript basics
 
     };
 
