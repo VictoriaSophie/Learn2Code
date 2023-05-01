@@ -31,7 +31,10 @@ public class StandardInfoPage extends AppCompatActivity {
         cardOneText=findViewById(R.id.cardOneText);
         cardTwoText=findViewById(R.id.cardTwoText);
         cardThreeText=findViewById(R.id.cardThreeText);
+
         cardOneImage=findViewById(R.id.cardOneImage);
+        cardTwoImage=findViewById(R.id.cardTwoImage);
+        cardThreeImage=findViewById(R.id.cardThreeImage);
 
         Intent intent = getIntent();
         int pageNumber = intent.getIntExtra("pageNumber", 0);
@@ -57,8 +60,10 @@ public class StandardInfoPage extends AppCompatActivity {
         cardOneText.setText(Information.cardOneInfo[pageNumber]);
         cardTwoText.setText(Information.cardTwoInfo[pageNumber]);
         cardThreeText.setText(Information.cardThreeInfo[pageNumber]);
-        cardOneImage.setImageDrawable(ContextCompat.getDrawable(this, Information.image[pageNumber]));
-        //cardOneImage.setImageIcon(Information.image[pageNumber]);
+
+        cardOneImage.setImageDrawable(ContextCompat.getDrawable(this, Information.image[pageNumber][0]));
+        cardTwoImage.setImageDrawable(ContextCompat.getDrawable(this, Information.image[pageNumber][1]));
+        cardThreeImage.setImageDrawable(ContextCompat.getDrawable(this, Information.image[pageNumber][2]));
 
     }
 

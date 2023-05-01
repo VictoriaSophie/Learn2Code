@@ -35,11 +35,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Title"
                 app:layout_constraintEnd_toStartOf="@+id/cardOneImage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/cardOneText"
+                android:text="Title"
                 android:textSize="16dp"
                 android:textStyle="bold"/>
 
@@ -48,17 +48,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="Read More"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/cardOneImage"
                 app:layout_constraintStart_toStartOf="@+id/cardOneImage"
-                app:layout_constraintTop_toBottomOf="@+id/cardOneImage" />
+                app:layout_constraintTop_toBottomOf="@+id/cardOneImage"
+                android:text="Read More"
+                />
 
             <TextView
                 android:id="@+id/cardOneText"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cardOneImage"
@@ -69,10 +70,10 @@
                 android:id="@+id/cardOneImage"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintWidth_percent="0.3"
-                app:layout_constraintHeight_percent="0.65"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintHeight_percent="0.65"
                 android:layout_marginEnd="5dp"
                 android:layout_marginTop="10dp"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -83,7 +84,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/CardViewTwo"
         android:layout_width="match_parent"
-        android:layout_height="165dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,39 +99,48 @@
                 android:id="@+id/cardTwoTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title"
+                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toStartOf="@+id/cardTwoImage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/cardTwoText"/>
+                app:layout_constraintBottom_toTopOf="@+id/cardTwoText"
+                android:text="Title"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/cardTwoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:layout_marginEnd="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cardTwoText"
                 app:layout_constraintStart_toStartOf="@+id/cardTwoImage"
-                app:layout_constraintTop_toBottomOf="@+id/cardTwoImage" />
+                app:layout_constraintTop_toBottomOf="@+id/cardTwoImage"
+                android:text="Read More"
+                />
 
             <TextView
                 android:id="@+id/cardTwoText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cardTwoImage"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/cardTwoTitle" />
 
             <ImageView
                 android:id="@+id/cardTwoImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintHeight_percent="0.65"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="10dp"
                 tools:srcCompat="@tools:sample/avatars" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -139,7 +149,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/CardViewThree"
         android:layout_width="match_parent"
-        android:layout_height="165dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/startQuizButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,39 +164,46 @@
                 android:id="@+id/cardThreeTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title"
+                android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toStartOf="@+id/cardThreeImage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/cardThreeText"/>
+                app:layout_constraintBottom_toTopOf="@+id/cardThreeText"
+                android:text="Title"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/cardThreeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cardThreeText"
                 app:layout_constraintStart_toStartOf="@+id/cardThreeImage"
-                app:layout_constraintTop_toBottomOf="@+id/cardThreeImage" />
+                app:layout_constraintTop_toBottomOf="@+id/cardThreeImage"
+                android:text="Read More"/>
 
             <TextView
                 android:id="@+id/cardThreeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cardThreeImage"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/cardThreeTitle" />
 
             <ImageView
                 android:id="@+id/cardThreeImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3"
+                app:layout_constraintHeight_percent="0.65"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="10dp"
                 tools:srcCompat="@tools:sample/avatars" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
