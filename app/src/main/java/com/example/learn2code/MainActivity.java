@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         programming_basics.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, LessonProgrammingBasics.class)));
 
-        css_basics.setOnClickListener(view ->startActivity(new Intent(MainActivity.this, LessonCssBasics.class)));
+        css_basics.setOnClickListener(view -> startActivity(new Intent (MainActivity.this, StandardInfoPage.class).putExtra("pageNumber", 0)));
+
     }
 
     private void setAppBar() {
