@@ -18,6 +18,10 @@ public class StandardInfoPage extends AppCompatActivity {
     Button cardOneButton, cardTwoButton, cardThreeButton;
     TextView cardOneTitle, cardTwoTitle, cardThreeTitle, cardOneText, cardTwoText, cardThreeText;
     ImageView cardOneImage, cardTwoImage, cardThreeImage;
+    Button settings;
+
+    //FloatingActionButton home_button = findViewById(R.id.home);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,4 +77,5 @@ public class StandardInfoPage extends AppCompatActivity {
         FloatingActionButton home_button = findViewById(R.id.home);
         CommonMethods.setAppBar(StandardInfoPage.this, bottomAppBar, home_button);
     }
-}
+
+    }
