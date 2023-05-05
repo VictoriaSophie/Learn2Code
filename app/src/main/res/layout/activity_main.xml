@@ -1,24 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/purple_200">
 
-    <Button
-        android:id="@+id/htmlBasics_button"
-        android:layout_width="177dp"
-        android:layout_height="198dp"
-        android:text="HTML \nBasics"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Button" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <include
-        layout="@layout/bottom_toolbar"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="75dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/htmlBasics_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:text="HTML \nBasics"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/programmingBasics_button" />
+
+            <Button
+                android:id="@+id/cssBasics_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:text="CSS \nBasics"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/htmlTwo_button" />
+
+            <Button
+                android:id="@+id/cssOne_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:text="CSS 1"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cssBasics_button"
+                app:layout_constraintEnd_toStartOf="@id/cssTwo_button"
+                app:layout_constraintBottom_toTopOf="@+id/javascriptBasics_button"/>
+
+            <Button
+                android:id="@+id/cssTwo_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:text="CSS 2"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cssBasics_button"
+                app:layout_constraintStart_toEndOf="@id/cssOne_button"
+                app:layout_constraintBottom_toTopOf="@+id/javascriptBasics_button"/>
+
+            <Button
+                android:id="@+id/htmlTwo_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:gravity="bottom"
+                android:text="HTML 2"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/htmlBasics_button"
+                app:layout_constraintStart_toEndOf="@+id/htmlOne_button"
+                app:layout_constraintBottom_toTopOf="@+id/cssBasics_button"/>
+
+            <Button
+                android:id="@+id/htmlOne_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:text="HTML 1"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/htmlBasics_button"
+                app:layout_constraintBottom_toTopOf="@id/cssBasics_button"
+                app:layout_constraintEnd_toStartOf="@id/htmlTwo_button"/>
+
+            <Button
+                android:id="@+id/programmingBasics_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:text="Programming \nBasics"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/javascriptBasics_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:text="JavaScript \nBasics"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cssOne_button"
+                app:layout_constraintBottom_toTopOf="@id/javascriptOne_button"/>
+
+            <Button
+                android:id="@+id/javascriptOne_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:text="JavaScript \nOne"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                app:layout_constraintEnd_toStartOf="@+id/javascriptTwo_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/javascriptBasics_button"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:id="@+id/javascriptTwo_button"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:text="JavaScript \nTwo"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:cornerRadius="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/javascriptOne_button"
+                app:layout_constraintTop_toBottomOf="@+id/javascriptBasics_button"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <include layout="@layout/bottom_toolbar" />
+
+</FrameLayout>
