@@ -12,16 +12,22 @@
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_htmllesson_two.xml" value="0.465625" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_lesson.xml" value="0.152" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_lesson_css_basics.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_lesson_html_one.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_lesson_html_two.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_lesson_one_html.xml" value="0.22" />
-        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_lesson_programming_basics.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_log_in.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
-        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_programming_basics_lesson.xml" value="0.1" />
-        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_standard_info_page.xml" value="0.1" />
+        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_rounded_image_view.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_settings.xml" value="0.264" />
+        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_sign_up.xml" value="0.21754385964912282" />
+        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_standard_info_page.xml" value="0.22" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/activity_standard_quiz.xml" value="0.2" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/bottom_toolbar.xml" value="0.1" />
+        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/layout.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/layout/toolbar.xml" value="0.465625" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/menu/menu.xml" value="0.1" />
         <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/mipmap-anydpi-v26/html_template.xml" value="0.169" />
+        <entry key="..\:/Users/victo/AndroidStudioProjects/Learn2Code/app/src/main/res/xml/toolbar_scene.xml" value="0.1358695652173913" />
       </map>
     </option>
   </component>

@@ -16,31 +16,16 @@
         android:theme="@style/Theme.Learn2Code"
         tools:targetApi="31">
         <activity
+            android:name=".LogIn"
+            android:exported="false" />
+        <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
             android:name=".StandardInfoPage"
             android:exported="false" />
         <activity
-            android:name=".LessonCssBasics"
-            android:exported="false" />
-        <activity
-            android:name=".LessonHtmlTwo"
-            android:exported="false" />
-        <activity
-            android:name=".LessonHtmlOne"
-            android:exported="false" />
-        <activity
-            android:name=".LessonProgrammingBasics"
-            android:exported="false" />
-        <activity
-            android:name=".LessonHtmlBasics"
-            android:exported="false" />
-        <activity
             android:name=".StandardQuiz"
-            android:exported="false" />
-        <activity
-            android:name=".CRUD"
-            android:exported="false" />
-        <activity
-            android:name=".Lesson"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
