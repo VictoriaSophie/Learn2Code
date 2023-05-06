@@ -1,13 +1,22 @@
 package com.example.learn2code;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 public class LogIn extends AppCompatActivity {
 
@@ -15,6 +24,8 @@ public class LogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+
+        socialMediaAccLinks();
 
         TextView email = findViewById(R.id.email);
         TextView password = findViewById(R.id.password);
@@ -32,5 +43,39 @@ public class LogIn extends AppCompatActivity {
         });
 
         registerButton.setOnClickListener(view -> startActivity(new Intent(LogIn.this, Register.class)));
+    }
+
+    private void socialMediaAccLinks() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        GoogleSignInClient gsc = GoogleSignIn.getClient(this, gso);
+        ImageView googleButton = findViewById(R.id.googleButton);
+
+        googleButton.setOnClickListener(view -> signIn(gsc));
+    }
+
+    private void signIn(GoogleSignInClient gsc) {
+        Intent signInIntent = gsc.getSignInIntent();
+        startActivityForResult(signInIntent, 1000);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                task.getResult(ApiException.class);
+                navigateToSecondActivity();
+            } catch (ApiException e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void navigateToSecondActivity() {
+        finish();
+        Intent intent = new Intent(LogIn.this, Settings.class);
+        startActivity(intent);
     }
 }
