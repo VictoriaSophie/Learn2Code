@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Learn2Code"
         tools:targetApi="31">
         <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
             android:name=".LogIn"
             android:exported="false" />
         <activity
