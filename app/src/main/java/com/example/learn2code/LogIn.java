@@ -17,6 +17,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class LogIn extends AppCompatActivity {
 
@@ -24,6 +26,8 @@ public class LogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        setAppBar();
+
 
         socialMediaAccLinks();
 
@@ -77,5 +81,11 @@ public class LogIn extends AppCompatActivity {
         finish();
         Intent intent = new Intent(LogIn.this, Settings.class);
         startActivity(intent);
+    }
+    private void setAppBar() {
+        BottomAppBar bottomAppBar;
+        bottomAppBar = findViewById(R.id.bottomAppBar2);
+        FloatingActionButton home_button = findViewById(R.id.home);
+        CommonMethods.setAppBar(LogIn.this, bottomAppBar, home_button);
     }
 }
