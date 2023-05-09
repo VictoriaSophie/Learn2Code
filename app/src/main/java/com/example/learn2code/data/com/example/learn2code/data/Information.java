@@ -20,11 +20,13 @@ public class Information {
             // css 1
             {"Comments", "Colours 1", "Colours 2"},
             // css 2
-            {"Text Formatting", "Text Decorations and Transformations", "Margins and Padding"},
+            {"Text Formatting", "Decoration & Transformation", "Margins and Padding"},
             // js basic
-            {"What is JavaScript?", "Why JavaScript", "How is JavaScript useful?"}
+            {"What is JavaScript (JS)?", "Why JavaScript", "How is JavaScript useful?"},
             // js 1
+            {"HTML IDs", "Using IDs in JS", "Changing CSS"},
             // js 2
+            {"Best Practice", "Variables", "Alerts and Logs"}
 
     };
 
@@ -39,8 +41,8 @@ public class Information {
             "Just like HTML you can create comments in CSS. However, in CSS comments are contained within '/*' and '*/' with whatever you want to comment in-between. Comments can continue over multiple lines.", // css 1
             "As well as changing the colour of text, CSS can handle changing the alignment (e.g. text-align: center;), spacing (e.g. letter-spacing: 3px;), shadow (e.g. text-shadow: 3px 3px;), decorations and transformations.", // css 2
             "JavaScript is a programming language used to create interactive web pages. HTML and CSS are not technically programming languages so JavaScript will be the first programming language you learn.", // js basics
-            // js 1
-            // js 2
+            "To find an HTML element in your JavaScript code, it is helpful to add an ID to your HTML element. This goes in the opening tag e.g: <h1 id='heading'>.",// js 1
+            "There are ways to have all your HTML, CSS and JavaScript within the same document however, the best practice within the industry is to keep them in separate documents. This keeps your code more maintainable."// js 2
 
     };
 
@@ -51,10 +53,10 @@ public class Information {
             "As seen on the previous page, the link element contains a href attribute that allows you to choose the link you want to share. Similarly, the image element requires a src attribute to choose what image to be displayed.", // HTML 2
             "CSS consists of three basic parts. A selector, property and a value. The selector is any of the HTML tags previously mentioned (and more!) that you want to apply the style to.",// CSS basics
             "Text colour and background colour of elements can easily be changed using CSS. To set text colour, the property is simply 'color' and to change the background colour the property is 'background-color'.", // css 1
-            "css 2", // css 2
-            "JavaScript is the most popular programming language and it allows you to program the behaviour of a website. This means JavaScript allows you to create buttons or change the content you've created on HTML."// js b
-            // js 1
-            // js 2
+            "'text-decoration-____' allows you to change how the text looks. You can add multiple to the same element and the options are: 'line, color, style, thickness'.\n'text-transform' allows you to toggle capitalisation.", // css 2
+            "JavaScript is the most popular programming language and it allows you to program the behaviour of a website. This means JavaScript allows you to create buttons or change the content you've created on HTML.", // js b
+            "To select an element from your HTML code, you can use the getElementById() method. For example: document.getElementById('heading').innerHTML. This allows you to change the content of the element, or hide it.",// js 1
+            "JavaScript allows you to work with variables, which allows you to store values. For example, if you want to keep track of a number you can declare 'let x =0;', then later on in your code you can do 'x=x+1'."// js 2
 
     };
 
@@ -65,10 +67,10 @@ public class Information {
             "Comments are not read by the browser and are used throughout all languages. This is used to explain what the code is doing or remind you of what you're doing next. In HTML comments are contained within '<!--' and '-->'.", // html 2
             "The property is the object that you want to style (e.g. colour, margin-top, font-family) and the value is what you want to make the object (e.g yellow, 100px, Comic sans).", // css b
             "There are 140 supported colour names that you can choose from in CSS, click read more to see them all. If you can't find the specific colour you want, CSS also allows HEX, HSL, HSLA, RGB and RGBA values.", // css 1
-            "css 2", // css 2
+            "Margins create space around the elements, whereas padding creates space within the element. Both allow you to specify the side of the element, 'top, bottom, left, right' e.g 'margin-top' or 'padding-bottom'.", // css 2
             "The information so far, might seem a little abstract. In more detail, JavaScript allows you to choose what HTML element you want and change the content of it, such as choosing a text box and changing the words to something else.", // js b
-            // js 1
-            // js 2
+            "JavaScript can also be used to change things within your CSS. For example, changing the colour of a button when it's clicked: document.getElementById('button').style.backgroundColor= 'Blue';",// js 1
+            "JavaScript allows you to create a pop-up box to alert the user of something e.g: alert('Closing soon!');. Additionally, you can write to the log using JS to allow you to debug e.g, if you have a variable x: 'console.log(x);"// js 2
             };
 
     public static int[][] image = {
