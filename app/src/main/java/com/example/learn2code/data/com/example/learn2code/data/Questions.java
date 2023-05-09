@@ -20,31 +20,35 @@ public class Questions {
             "Where should <!DOCTYPE html> be placed?",
             // html 1
             "What character is used to close tags?",
+            "What is the correct opening tag for creating a paragraph?",
+            "What is the correct opening tag for creating the largest heading?",
+            "What is the correct opening tag for creating important text (bold)?",
+            "What is the correct opening tag for creating a line break?",
+            "What is the correct opening tag for creating an image?",
+            "What is the correct opening tag for creating a list?",
+            "What is the correct opening tag for creating a list item?",
+            "What is the correct opening tag for creating a link?",
+            // html 2
+            "What attribute is necessary within an image element?",
+            "What attribute is necessary within a link element?",
             // js basics
             "Which of the following is considered a programming language?"
     };
 
     public static String options[][] = {
-            {"Present information for a browser to interpret", "Give instructions to a computer to produce an output", "A set of information that allows people to choose which TV show to watch", "idk"},
-            {"Present information for a browser to interpret", "Give instructions to a computer to produce an output", "A set of information that allows people to choose which TV show to watch", "idk"},
-            {"Java", "JavaScript", "HTML", "Python"},
-            {"<", "!", "/", ";"},
-            {"Creating websites", "Machine learning", "Developing applications", "Databases"},
-            {"<h1>", "<paragraph>", "p", "<p>"},
-            {"Anywhere on the page", "Top of the document", "Bottom of the document", "Within an HTML tag"},
-            {"<", "!", "/", ";"}, // html 1
+            {"Present information for a browser to interpret", "Give instructions to a computer to produce an output", "A set of information that allows people to choose which TV show to watch", "idk"}, {"Present information for a browser to interpret", "Give instructions to a computer to produce an output", "A set of information that allows people to choose which TV show to watch", "idk"}, {"Java", "JavaScript", "HTML", "Python"},
+            {"<", "!", "/", ";"}, {"Creating websites", "Machine learning", "Developing applications", "Databases"}, {"<h1>", "<paragraph>", "p", "<p>"}, {"Anywhere on the page", "Top of the document", "Bottom of the document", "Within an HTML tag"},
+            {"<", "!", "/", ";"}, {"<h1>", "<p>", "<br>", "<strong>"}, {"<h1>", "<p>", "<br>", "<strong>"}, {"<h1>", "<p>", "<br>", "<strong>"}, {"<h1>", "<p>", "<br>", "<strong>"}, {"<a>", "<img>", "<ul>", "<li>"}, {"<a>", "<img>", "<ul>", "<li>"}, {"<a>", "<img>", "<ul>", "<li>"}, {"<a>", "<img>", "<ul>", "<li>"},
+            {"href", "src"}, {"href", "src"},  // html 2
             {"CSS", "JavaScript", "HTML"}, // js b
     };
 
     public static String answers[] = {
-            "Give instructions to a computer to produce an output",
-            "Present information for a browser to interpret",
-            "HTML",
-            "<",
-            "Creating websites",
-            "<p>",
-            "Top of the document",
-            "/", // html 1
+            "Give instructions to a computer to produce an output", "Present information for a browser to interpret", "HTML", // prog basics
+            "<", "Creating websites", "<p>", "Top of the document", // html basics
+            "/", "<p>", "<h1>", "<strong>", "<br>", "<img>", "<ul>", "<li>", "<a>",// html 1
+            "src", "href", // html 2
+
             "JavaScript" // javascript basics
 
     };
