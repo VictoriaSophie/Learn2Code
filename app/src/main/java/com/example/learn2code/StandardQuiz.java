@@ -82,6 +82,22 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
                 startingQuestionIndex = 20;
                 totalQuestions = 3;
                 break;
+            case 6:
+                startingQuestionIndex = 23;
+                totalQuestions = 5;
+                break;
+            case 7:
+                startingQuestionIndex = 28; // it does not like 28 for some reason
+                totalQuestions = 2;
+                break;
+            case 8:
+                startingQuestionIndex =30;
+                totalQuestions = 2;
+                break;
+            case 9:
+                startingQuestionIndex =32;
+                totalQuestions = 2;
+                break;
 
         }
 
