@@ -58,16 +58,24 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
         Intent intent = getIntent();
         int quizNumber = intent.getIntExtra("quizNumber", 0);
         switch (quizNumber) {
-            case 1:
+            case 0:
                 startingQuestionIndex = 0;
                 totalQuestions = 3;
                 break;
-            case 2:
+            case 1:
                 startingQuestionIndex = 3;
-                totalQuestions =5;
+                totalQuestions = 4;
+                break;
+            case 2:
+                startingQuestionIndex = 7;
+                totalQuestions =6;
                 break;
             case 3:
-                startingQuestionIndex = 8;
+                startingQuestionIndex = 13;
+                totalQuestions = 2;
+                break;
+            case 4:
+                startingQuestionIndex = 15;
 
         }
 
