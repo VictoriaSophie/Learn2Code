@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class StandardInfoPage extends AppCompatActivity {
     ImageView cardOneImage, cardTwoImage, cardThreeImage;
     Button settings;
 
+    Button startQuizButton;
     //FloatingActionButton home_button = findViewById(R.id.home);
 
 
@@ -39,6 +41,8 @@ public class StandardInfoPage extends AppCompatActivity {
         cardOneImage=findViewById(R.id.cardOneImage);
         cardTwoImage=findViewById(R.id.cardTwoImage);
         cardThreeImage=findViewById(R.id.cardThreeImage);
+
+        startQuizButton = findViewById(R.id.startQuizButton);
 
         Intent intent = getIntent();
         int pageNumber = intent.getIntExtra("pageNumber", 0);
@@ -68,6 +72,8 @@ public class StandardInfoPage extends AppCompatActivity {
         cardOneImage.setImageDrawable(ContextCompat.getDrawable(this, Information.image[pageNumber][0]));
         cardTwoImage.setImageDrawable(ContextCompat.getDrawable(this, Information.image[pageNumber][1]));
         cardThreeImage.setImageDrawable(ContextCompat.getDrawable(this, Information.image[pageNumber][2]));
+
+        startQuizButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), StandardQuiz.class).putExtra("quizNumber", pageNumber)));
 
     }
 
