@@ -82,6 +82,31 @@
         app:layout_constraintTop_toBottomOf="@id/xp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Change username... "
+                android:background="#75ffffff"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp" />
+
+            <Button
+                android:id="@+id/usernameButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:backgroundTint="@color/white"
+                android:onClick="getTextFromSQL"
+                android:paddingVertical="10dp"
+                android:text="Enter"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+        </LinearLayout>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -98,14 +123,7 @@
             android:textColor="@color/black"
             android:backgroundTint="@color/white">
         </Button>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Other settings"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/white">
-        </Button>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
