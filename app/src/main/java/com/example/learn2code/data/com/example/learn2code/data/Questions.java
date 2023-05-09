@@ -31,6 +31,13 @@ public class Questions {
             // html 2
             "What attribute is necessary within an image element?",
             "What attribute is necessary within a link element?",
+            // css basics
+            "What does CSS stand for?",
+            "Which of these is not a necessary part in declaring a style?",
+            // css 1
+            "What character is used when creating comments in CSS?",
+            "There are only 140 colours you can use within CSS.",
+            "What is NOT a valid value for CSS colours?",
             // js basics
             "Which of the following is considered a programming language?"
     };
@@ -39,7 +46,9 @@ public class Questions {
             {"Present information for a browser to interpret", "Give instructions to a computer to produce an output", "A set of information that allows people to choose which TV show to watch", "idk"}, {"Present information for a browser to interpret", "Give instructions to a computer to produce an output", "A set of information that allows people to choose which TV show to watch", "idk"}, {"Java", "JavaScript", "HTML", "Python"},
             {"<", "!", "/", ";"}, {"Creating websites", "Machine learning", "Developing applications", "Databases"}, {"<h1>", "<paragraph>", "p", "<p>"}, {"Anywhere on the page", "Top of the document", "Bottom of the document", "Within an HTML tag"},
             {"<", "!", "/", ";"}, {"<h1>", "<p>", "<br>", "<strong>"}, {"<h1>", "<p>", "<br>", "<strong>"}, {"<h1>", "<p>", "<br>", "<strong>"}, {"<h1>", "<p>", "<br>", "<strong>"}, {"<a>", "<img>", "<ul>", "<li>"}, {"<a>", "<img>", "<ul>", "<li>"}, {"<a>", "<img>", "<ul>", "<li>"}, {"<a>", "<img>", "<ul>", "<li>"},
-            {"href", "src"}, {"href", "src"},  // html 2
+            {"href", "a", "img", "src"}, {"href", "a", "img", "src"},  // html 2
+            {"Cascading System Styles", "Colors, Symbols, and Styles", "Cascading Style Sheets", "Certified Styling Section"}, {"Value", "Color", "Property", "Selector"},
+            {"<", "/", ";", "!"}, {"True", "True, but more colours can be added externally", "False, more colours can be used by HEX codes", "False, there are 410 available colours"}, {"RGB", "HEX", "External Link", "Supported Color Names"},
             {"CSS", "JavaScript", "HTML"}, // js b
     };
 
@@ -48,6 +57,9 @@ public class Questions {
             "<", "Creating websites", "<p>", "Top of the document", // html basics
             "/", "<p>", "<h1>", "<strong>", "<br>", "<img>", "<ul>", "<li>", "<a>",// html 1
             "src", "href", // html 2
+            "Cascading Style Sheets", "Color", // CSS basics
+            "/", "False, more colours can be used by HEX codes", "External Link", // CSS 1
+
 
             "JavaScript" // javascript basics
 
