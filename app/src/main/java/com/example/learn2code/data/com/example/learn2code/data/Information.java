@@ -14,7 +14,7 @@ public class Information {
             // HTML 1
             {"Elements", "Text Elements", "Other Elements"},
             // HTML 2
-            {"1", "2", "3"},
+            {"Attributes", "Common Attribute Examples", "Comments"},
             //css basics
             {"CSS (Cascading Style Sheets)", "Oops!", "third thing"},
             // css 1
@@ -34,7 +34,7 @@ public class Information {
             "Websites and other applications are created by developers who write code to create any features you see on the screen. There are a variety of programming languages that developers uses which all have their uses and drawbacks.", // programming basics
             "HTML stands for Hypertext markup language and is used to create and structure websites. It is not considered an official programming language but is usually used with programming languages such as JavaScript.", // HTML basics
             "HTML uses different elements to create different items on your webpage. There are 111 (as of 2022) elements you can use to make an interesting website. An HTML element is defined using tags.", // HTML 1
-            "I forgot index starts at 0", // HTML 2
+            "Many HTML elements need attributes to function. Attributes provide additional information for the element and are found nested in the opening tag.", // HTML 2
             "So far, we have learned how to create basic elements on a website but we want our application to look pretty. To do this, we can use CSS which tells the computer how we want to design our website.", // CSS Basics
             "css 1", // css 1
             "css 2", // css 2
@@ -48,7 +48,7 @@ public class Information {
             "This application will teach you how to create your very own website. It will give you all the tools and knowledge needed to create any website you want.", // P Basics
             "HTML has been used since 1993 and was written by Tim Berners-Lee. It was originally developed to support linking between online resources.", // HTML basics
             "<h1> Heading </h1>\n<p> Paragraph </p>\n<br> Line break\n<strong> Important Text </strong>", // HTML 1
-            "HI LISM", // HTML 2
+            "As seen on the previous page, the link element contains a href attribute that allows you to choose the link you want to share. Similarly, the image element requires a src attribute to choose what image to be displayed.", // HTML 2
             "CSS basics",// CSS basics
             "css 1", // css 1
             "css 2", // css 2
@@ -62,7 +62,7 @@ public class Information {
             "Learn2Code uses a variety of techniques to allow you to read and understand the information you need. An example of one of these techniques is quizzes, please click the button below to begin your first quiz!", // P basics
             "A HTML document always begins with <!DOCTYPE> to define the document to the computer, then the rest of the code is placed in a HTML tag: <html> information </html>. The <body> tag contains all the information a user can see.", // HTML b
             "<a href= https://> Link </a>\n<img src='.jpg' alt= 'Image'>\n<ul> List </ul>\n<li> List Item </li>",
-            "HI LIM", // html 2
+            "Comments are not read by the browser and are used throughout all languages. This is used to explain what the code is doing or remind you of what you're doing next. In HTML comments are contained within '<!--' and '-->'.", // html 2
             "css b", // css b
             "css 1", // css 1
             "css 2", // css 2
