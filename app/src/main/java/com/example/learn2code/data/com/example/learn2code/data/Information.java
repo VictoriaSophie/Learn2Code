@@ -97,7 +97,17 @@ public class Information {
 
     };
 
-    public static Button[][] buttons = {
+    public static String[][] buttons = {
+            {"", "", ""}, // p basics
+            {"", "", ""}, // html basics
+            {"", "", ""}, // html1
+            {"", "", ""}, // html 2
+            {"", "", ""}, // css basics
+            {"", "", "https://www.w3schools.com/colors/colors_names.asp"}, // css 1
+            {"", "", ""}, // css 2
+            {"", "", ""}, // js basics
+            {"", "", ""}, // js 1
+            {"", "", ""} // js 2
 
             // css card 3: https://www.w3schools.com/colors/colors_names.asp
 
