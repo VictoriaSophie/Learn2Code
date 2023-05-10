@@ -1,18 +1,15 @@
 package com.example.learn2code;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learn2code.data.Questions;
 import com.example.learn2code.data.XPDatabase;
@@ -31,6 +28,8 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
     int questionsLeft= 0;
     int startingQuestionIndex = 0;
     String selectedAnswer = "";
+    ProgressBar progressBar;
+    int progressNo, progressMultiple;
 
     int currentQuestionIndex = 0;
 
@@ -41,6 +40,7 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
         setAppBar();
 
         xphandler = new XPDatabase(StandardQuiz.this);
+        progressBar = findViewById(R.id.progressBar);
         questionAmountTextView =findViewById(R.id.totalQuestions);
         questionTextView=findViewById(R.id.question);
         ans1=findViewById(R.id.AnswerOne);
@@ -104,6 +104,8 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
         questionAmountTextView.setText("Total questions: " + totalQuestions);
         questionsLeft = totalQuestions;
         currentQuestionIndex = startingQuestionIndex;
+        progressMultiple = 100/totalQuestions;
+        progressNo = progressMultiple;
         loadNewQuestion();
     }
 
@@ -122,6 +124,7 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
         if (questionsLeft != totalQuestions) {
             questionAmountTextView.setText("Questions left: " + questionsLeft);
         }
+        progressBar.setProgress(progressNo);
     }
 
     private void finishQuiz() {
@@ -148,6 +151,7 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
 
     private void restartQuiz() {
         score = 0;
+        progressNo = progressMultiple;
         questionsLeft=totalQuestions;
         questionAmountTextView.setText("Total questions: " + totalQuestions);
         currentQuestionIndex=startingQuestionIndex;
@@ -167,6 +171,7 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
             if(selectedAnswer.equals(Questions.answers[currentQuestionIndex])){
                 score++;
             }
+            progressNo = progressNo + progressMultiple;
             questionsLeft--;
             currentQuestionIndex++;
             loadNewQuestion(); // load new question from index +1
