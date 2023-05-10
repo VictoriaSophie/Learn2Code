@@ -20,7 +20,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/CardViewOne"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.25"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +50,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/cardOneImage"
-                app:layout_constraintStart_toStartOf="@+id/cardOneImage"
-                app:layout_constraintTop_toBottomOf="@+id/cardOneImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardOneText"
                 android:text="Read More"
                 />
 
@@ -78,6 +78,17 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginTop="10dp"
                 tools:srcCompat="@tools:sample/avatars" />
+            <ImageView
+                android:id="@+id/cardOneLargeImage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                tools:srcCompat="@tools:sample/avatars" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -85,7 +96,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/CardViewTwo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.25"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,6 +156,19 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginTop="10dp"
                 tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/cardTwoLargeImage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -151,7 +176,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/CardViewThree"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.25"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/startQuizButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -207,6 +233,18 @@
                 app:layout_constraintHeight_percent="0.65"
                 android:layout_marginEnd="5dp"
                 android:layout_marginTop="10dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/cardThreeLargeImage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 tools:srcCompat="@tools:sample/avatars" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
