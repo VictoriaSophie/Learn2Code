@@ -1,12 +1,11 @@
 package com.example.learn2code.data;
 
-import android.media.Image;
 import android.widget.Button;
 
 import com.example.learn2code.R;
 
 public class Information {
-    public static String title[][] = {
+    public static String[][] title = {
             // programming basics
             {"How are websites created?", "What is Learn2Code?", "How do I use this application?"},
             // HTML Basics
@@ -32,7 +31,7 @@ public class Information {
 
     // card info has to be around 210 characters or less
 
-    public static String cardOneInfo[] = {
+    public static String[] cardOneInfo = {
             "Websites and other applications are created by developers who write code to create any features you see on the screen. There are a variety of programming languages that developers uses which all have their uses and drawbacks.", // programming basics
             "HTML stands for Hypertext markup language and is used to create and structure websites. It is not considered an official programming language but is usually used with programming languages such as JavaScript.", // HTML basics
             "HTML uses different elements to create different items on your webpage. There are 111 (as of 2022) elements you can use to make an interesting website. An HTML element is defined using tags.", // HTML 1
@@ -46,7 +45,7 @@ public class Information {
 
     };
 
-    public static String cardTwoInfo[] = {
+    public static String[] cardTwoInfo = {
             "This application will teach you how to create your very own website. It will give you all the tools and knowledge needed to create any website you want.", // P Basics
             "HTML has been used since 1993 and was written by Tim Berners-Lee. It was originally developed to support linking between online resources.", // HTML basics
             "<h1> Heading </h1>\n<p> Paragraph </p>\n<br> Line break\n<strong> Important Text </strong>", // HTML 1
@@ -60,7 +59,7 @@ public class Information {
 
     };
 
-    public static String cardThreeInfo[] = {
+    public static String[] cardThreeInfo = {
             "Learn2Code uses a variety of techniques to allow you to read and understand the information you need. An example of one of these techniques is quizzes, please click the button below to begin your first quiz!", // P basics
             "A HTML document always begins with <!DOCTYPE> to define the document to the computer, then the rest of the code is placed in a HTML tag: <html> information </html>. The <body> tag contains all the information a user can see.", // HTML b
             "<a href= https://> Link </a>\n<img src='.jpg' alt= 'Image'>\n<ul> List </ul>\n<li> List Item </li>",
@@ -74,20 +73,31 @@ public class Information {
             };
 
     public static int[][] image = {
-            {R.drawable.building_website, R.drawable.placeholder, R.drawable.placeholder}, // p basic
-            {R.drawable.placeholder, R.drawable.placeholder, R.drawable.placeholder}, // html basic
-            {R.drawable.placeholder, R.drawable.placeholder, R.drawable.placeholder}, // html 1
-            {R.drawable.placeholder, R.drawable.placeholder, R.drawable.placeholder}, // html 2
-            {R.drawable.css_logo, R.drawable.placeholder, R.drawable.placeholder}, // css b
-            {R.drawable.placeholder, R.drawable.placeholder, R.drawable.placeholder}, // css 1
-            {R.drawable.placeholder, R.drawable.placeholder, R.drawable.placeholder}, // css 2
-            {R.drawable.placeholder, R.drawable.placeholder, R.drawable.placeholder}, // js b
-            {R.drawable.placeholder, R.drawable.placeholder, R.drawable.placeholder}, // js 1
-            {R.drawable.placeholder, R.drawable.placeholder, R.drawable.placeholder}, // js 2
+            // pictures taken from Wikipedia or created on Visual Studio Code if not otherwise stated
+            // p basics
+            {R.drawable.building_website, R.drawable.learn_2_code_logo, R.drawable.quiz_image}, // building_website from www.theartsdevelopmentompany.org.uk, logo created from www.looka.com quiz_image from www.freepik.com
+            // html basics
+            {R.drawable.html5_logo, R.drawable.tim_berners_lee, R.drawable.html_structure},
+            // html 1
+            {R.drawable.html_elements, R.drawable.text_elements, R.drawable.other_elements},
+            // html 2
+            {R.drawable.html_attributes, R.drawable.common_attributes, R.drawable.html_comments}, //html_attributes from Learning Web Design, P.64
+            // css b
+            {R.drawable.css_logo, R.drawable.css_selector, R.drawable.properties_values}, // css_selector and properties_values taken from www.w3schools.com
+            // css 1
+            {R.drawable.css_comments, R.drawable.css_colours, R.drawable.colour_table},
+            // css 2
+            {R.drawable.text_formatting, R.drawable.decoration_transformation, R.drawable.margins_padding},
+            // js b
+            {R.drawable.javascript_logo, R.drawable.used_languages, R.drawable.javascript_uses}, // javascript_logo taken from www.pngwing.com, used_languages from www.educba.com, javascript_uses from www.learnacademy.org
+            // js 1
+            {R.drawable.html_id, R.drawable.js_id, R.drawable.changing_css},
+            // js 2
+            {R.drawable.standard_practice, R.drawable.js_variables, R.drawable.alerts_logs},
 
     };
 
-    public static Button buttons[][] = {
+    public static Button[][] buttons = {
 
             // css card 3: https://www.w3schools.com/colors/colors_names.asp
 
