@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -16,7 +17,7 @@ import com.example.learn2code.data.XPDatabase;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class StandardQuiz extends AppCompatActivity implements View.OnClickListener {
+public class StandardQuiz extends CommonMethods implements View.OnClickListener {
 
     TextView questionAmountTextView;
     TextView questionTextView;
@@ -36,8 +37,8 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_standard_quiz);
-        setAppBar();
+//        setContentView(R.layout.activity_standard_quiz);
+//        setAppBar();
 
         xphandler = new XPDatabase(StandardQuiz.this);
         progressBar = findViewById(R.id.progressBar);
@@ -58,11 +59,11 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
         Intent intent = getIntent();
         int quizNumber = intent.getIntExtra("quizNumber", 0);
         switch (quizNumber) {
-            case 0:
+            case 0: //b
                 startingQuestionIndex = 0;
                 totalQuestions = 3;
                 break;
-            case 1:
+            case 1: // html
                 startingQuestionIndex = 3;
                 totalQuestions = 4;
                 break;
@@ -74,7 +75,7 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
                 startingQuestionIndex = 16;
                 totalQuestions = 2;
                 break;
-            case 4:
+            case 4: //css
                 startingQuestionIndex = 18;
                 totalQuestions = 2;
                 break;
@@ -86,8 +87,8 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
                 startingQuestionIndex = 23;
                 totalQuestions = 5;
                 break;
-            case 7:
-                startingQuestionIndex = 28; // it does not like 28 for some reason
+            case 7: // js
+                startingQuestionIndex = 28;
                 totalQuestions = 2;
                 break;
             case 8:
@@ -101,13 +102,31 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
 
         }
 
-        questionAmountTextView.setText("Total questions: " + totalQuestions);
+        questionAmountTextView.setText("Total questions: "  + totalQuestions);
         questionsLeft = totalQuestions;
         currentQuestionIndex = startingQuestionIndex;
         progressMultiple = 100/totalQuestions;
         progressNo = progressMultiple;
         loadNewQuestion();
     }
+
+    @Override
+    protected int getLayoutResource() {
+        return R.layout.activity_standard_quiz;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu() {
+        return false;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
 
     private void loadNewQuestion() {
 
@@ -183,11 +202,5 @@ public class StandardQuiz extends AppCompatActivity implements View.OnClickListe
 
         }
 
-    }
-    private void setAppBar() {
-        BottomAppBar bottomAppBar;
-        bottomAppBar = findViewById(R.id.bottomAppBar2);
-        FloatingActionButton home_button = findViewById(R.id.home);
-        CommonMethods.setAppBar(StandardQuiz.this, bottomAppBar, home_button);
     }
 }
