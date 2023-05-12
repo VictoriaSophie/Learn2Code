@@ -1,26 +1,16 @@
 package com.example.learn2code;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.Menu;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends CommonMethods {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setAppBar();
-
+//        Toolbar bottomToolbar = findViewById(R.id.bottomAppBar2);
         Button programming_basics= findViewById(R.id.programmingBasics_button);
         Button html_button = findViewById(R.id.htmlBasics_button);
         Button html_one = findViewById(R.id.htmlOne_button);
@@ -45,11 +35,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setAppBar() {
-        BottomAppBar bottomAppBar;
-        bottomAppBar = findViewById(R.id.bottomAppBar2);
-        FloatingActionButton home_button = findViewById(R.id.home);
-        CommonMethods.setAppBar(MainActivity.this, bottomAppBar, home_button);
+    @Override
+    public int getLayoutResource() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu() {
+        return false;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 
 }
