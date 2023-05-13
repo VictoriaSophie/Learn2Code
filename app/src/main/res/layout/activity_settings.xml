@@ -108,9 +108,10 @@
                 android:textColor="@color/black" />
         </LinearLayout>
         <Button
+            android:id="@+id/changeProfPic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile settings"
+            android:text="Profile picture"
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:backgroundTint="@color/white">
@@ -144,8 +145,23 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="Log In"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/logoutButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linLayout">
+    </Button>
+
+    <Button
         android:id="@+id/logoutButton"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:text="Log Out"
@@ -154,7 +170,7 @@
         android:layout_marginBottom="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/loginButton"
         app:layout_constraintTop_toBottomOf="@+id/linLayout">
     </Button>
 

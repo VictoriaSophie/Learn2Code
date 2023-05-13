@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.learn2code">
 
-    <uses-permission android:name="android.permission.INTERNET"/> <!-- connect to social media account -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- connect to social media account -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Learn2Code"
         tools:targetApi="31">
+        <activity
+            android:name=".ProfilePicture"
+            android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="false" />

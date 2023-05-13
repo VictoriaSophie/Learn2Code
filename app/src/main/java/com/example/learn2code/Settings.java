@@ -2,13 +2,21 @@ package com.example.learn2code;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.sql.Connection;
 
@@ -16,29 +24,91 @@ import java.sql.Connection;
 
 
 public class Settings extends CommonMethods {
-    Connection connect;
-    String ConnectionResult="";
+//    Connection connect;
+//    String ConnectionResult="";
+
+    FirebaseAuth auth;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-//        TextView username = findViewById(R.id.username);
-        Button logoutButton = findViewById(R.id.logoutButton);
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
+        EditText usernameEt = findViewById(R.id.editUsername);
+        Button changeName = findViewById(R.id.usernameButton);
+
+        TextView username = findViewById(R.id.username);
+        Button logoutButton = findViewById(R.id.logoutButton);
+        Button loginButton = findViewById(R.id.loginButton);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         GoogleSignInClient gsc = GoogleSignIn.getClient(this, gso);
 
+        if (user!=null){
+            username.setText(user.getDisplayName());
+        }
+
+
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct!=null) {
             String personName = acct.getDisplayName();
-            String personEmail = acct.getEmail();
-//            username.setText(personName);
+//            String personEmail = acct.getEmail();
+            username.setText(personName);
         }
 
-        logoutButton.setOnClickListener(view -> signOut(gsc));
+        changeName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String usernameText = String.valueOf(usernameEt.getText());
+                if (TextUtils.isEmpty(usernameText)) {
+                    Toast.makeText(Settings.this, "Please enter a new username", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    if (user != null) {
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(usernameText).build();
+                        assert user != null;
+                        user.updateProfile(profileUpdates);
+                        // reload page
+                        finish();
+                        Intent intent = new Intent(getApplicationContext(), Settings.class);
+                        startActivity(intent);
+                    } else if (acct != null) {
+                        Toast.makeText(Settings.this, "Please change display name on your google account.", Toast.LENGTH_LONG).show();
+
+                    }
+                    else {
+                        Toast.makeText(Settings.this, "Something went wrong.", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Settings.this, LogIn.class));
+            }
+        });
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (user != null) {
+                    FirebaseAuth.getInstance().signOut();
+                }
+                else if (acct != null){
+                    signOut(gsc);
+                }
+                else {
+                    Toast.makeText(Settings.this, "You are already signed out.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void signOut(GoogleSignInClient gsc) {
@@ -48,30 +118,7 @@ public class Settings extends CommonMethods {
         });
     }
 
-//    public void getTextFromSQL(View v) {
-//        TextView username = findViewById(R.id.username);
-//
-//        try {
-//            DBHandler db = new DBHandler();
-//            connect = db.connection();
-//            Toast.makeText(this, db.ConnectionURL, Toast.LENGTH_LONG).show();
-//            if (connect != null) {
-//                String query="SELECT from learn2code_Users";
-//                Statement st = connect.createStatement();
-//                ResultSet rs = st.executeQuery(query);
-//                while (rs.next()) {
-//                    username.setText(rs.getString(2));
-//                }
-//            }
-//            else {
-//                ConnectionResult="Check Connection";
-//            }
-//        } catch (Exception ex) {
-//            Log.e("Error:", ex.getMessage());
-//
-//        }
-//
-//    }
+
 
     @Override
     protected int getLayoutResource() {
