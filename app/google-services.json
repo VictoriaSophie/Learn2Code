@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "482238711004",
+    "project_id": "learn2code-7c432",
+    "storage_bucket": "learn2code-7c432.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482238711004:android:9349f8d43d5926d6a1a019",
+        "android_client_info": {
+          "package_name": "com.example.learn2code"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482238711004-kki757gj6ops5098i6172ksd7r3sgu4r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMmS0iLxTf2kK7GEwloQMMXpxcOHRa61U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482238711004-kki757gj6ops5098i6172ksd7r3sgu4r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
