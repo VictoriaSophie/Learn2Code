@@ -45,6 +45,8 @@ public class Settings extends CommonMethods {
         Button logoutButton = findViewById(R.id.logoutButton);
         Button loginButton = findViewById(R.id.loginButton);
 
+        Button profilePicBtn = findViewById(R.id.changeProfPic);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         GoogleSignInClient gsc = GoogleSignIn.getClient(this, gso);
 
@@ -109,6 +111,8 @@ public class Settings extends CommonMethods {
                 }
             }
         });
+
+        profilePicBtn.setOnClickListener(v -> startActivity(new Intent(Settings.this, ProfilePicture.class)));
     }
 
     private void signOut(GoogleSignInClient gsc) {

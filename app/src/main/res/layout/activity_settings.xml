@@ -101,7 +101,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:backgroundTint="@color/white"
-                android:onClick="getTextFromSQL"
                 android:paddingVertical="10dp"
                 android:text="Enter"
                 android:textAlignment="center"
