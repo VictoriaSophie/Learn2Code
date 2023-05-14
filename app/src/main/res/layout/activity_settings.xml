@@ -18,51 +18,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/profilePicCard"
+        app:layout_constraintBottom_toTopOf="@id/profilePicture"
         android:text="Settings"
         android:textSize="20dp"
         android:textStyle="bold"
         android:layout_marginTop="10dp" />
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/profilePicCard"
+    <ImageView
+        android:id="@+id/profilePicture"
         android:layout_width="155dp"
         android:layout_height="155dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/settingsText"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="250dp"
-        app:cardBackgroundColor="@color/white">
+        android:src="@drawable/ic_baseline_face_3_24"/>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:cardCornerRadius="250dp"
-            android:layout_gravity="center">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/profilePicCard"-->
+<!--        android:layout_width="155dp"-->
+<!--        android:layout_height="155dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/settingsText"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:cardCornerRadius="250dp"-->
+<!--        app:cardBackgroundColor="@color/white">-->
 
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/placeholder"
-                android:scaleType="centerCrop"/>
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            app:cardCornerRadius="250dp"-->
+<!--            android:layout_gravity="center">-->
 
-        </androidx.cardview.widget.CardView>
+<!--            <ImageView-->
+<!--                android:id="@+id/profilePicture"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:src="@drawable/placeholder"-->
+<!--                android:scaleType="centerCrop"/>-->
 
-    </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--    </androidx.cardview.widget.CardView>-->
 
     <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/profilePicCard"
+        app:layout_constraintTop_toBottomOf="@id/profilePicture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
         android:text=" @test_user"/>
     <TextView
-        android:id="@+id/xp"
+        android:id="@+id/xpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/username"
@@ -79,18 +88,44 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="362dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/xp"
+        app:layout_constraintTop_toBottomOf="@id/xpText"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Change username... "
+                android:background="#75ffffff"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp" />
+
+            <Button
+                android:id="@+id/usernameButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:backgroundTint="@color/white"
+                android:paddingVertical="10dp"
+                android:text="Enter"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+        </LinearLayout>
         <Button
+            android:id="@+id/changeProfPic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile settings"
+            android:text="Profile picture"
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:backgroundTint="@color/white">
         </Button>
         <Button
+            android:id="@+id/accountBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Account Settings"
@@ -98,14 +133,7 @@
             android:textColor="@color/black"
             android:backgroundTint="@color/white">
         </Button>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Other settings"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/white">
-        </Button>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,7 +154,23 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="200dp"
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="Log In"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/logoutButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linLayout">
+    </Button>
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:text="Log Out"
@@ -135,7 +179,7 @@
         android:layout_marginBottom="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/loginButton"
         app:layout_constraintTop_toBottomOf="@+id/linLayout">
     </Button>
 

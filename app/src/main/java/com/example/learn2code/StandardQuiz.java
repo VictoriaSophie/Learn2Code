@@ -1,21 +1,37 @@
 package com.example.learn2code;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learn2code.data.Questions;
 import com.example.learn2code.data.XPDatabase;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
 
 public class StandardQuiz extends CommonMethods implements View.OnClickListener {
 
@@ -34,11 +50,20 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
 
     int currentQuestionIndex = 0;
 
+    FirebaseAuth auth;
+    FirebaseUser user;
+    String userName;
+    String passStatus;
+    String userXP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_standard_quiz);
 //        setAppBar();
+        FirebaseApp.initializeApp(this);
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
         xphandler = new XPDatabase(StandardQuiz.this);
         progressBar = findViewById(R.id.progressBar);
@@ -154,6 +179,41 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
             // add 50 xp
             xp +=50;
             xphandler.saveXP("xp", xp); // changes xp
+//            if (user != null) {
+//                String userId = user.getUid();
+//                String userName = user.getDisplayName();
+//                DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
+//                dataRef.child("users").child(userId).child("xp").setValue(xp);
+//                String userXP = dataRef.child("users").child(userId).child("xp").getValue();
+//                Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT ).show();
+//            }
+//            if (user != null) {
+//                String userId = user.getUid();
+//                userName = user.getDisplayName();
+//                DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
+//                // Set the ValueEventListener to retrieve the "xp" value
+//                dataRef.child("users").child(userId).child("xp").addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        // Retrieve the "xp" value from the dataSnapshot
+//                        String userXP = dataSnapshot.getValue(String.class);
+//
+//                        // Display the retrieved data
+//                        Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//                        // Handle the error, if any
+//                        Toast.makeText(StandardQuiz.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
+
+//            } else {
+//                Toast.makeText(this, "User is null", Toast.LENGTH_SHORT).show();
+//            }
+
 
 
         }else{
@@ -162,11 +222,13 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
 
         new AlertDialog.Builder(this)
                 .setTitle(passStatus)
+//                .setMessage("User: " + userName + ", XP: " + userXP)
                 .setMessage("Score is " + score + " out of " + totalQuestions + "\n" + "Your current XP is: " + xp)
                 .setPositiveButton("Restart", (dialogInterface, i) -> restartQuiz())
                 .setCancelable(false)
                 .show();
     }
+
 
     private void restartQuiz() {
         score = 0;

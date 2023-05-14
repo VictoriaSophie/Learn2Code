@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfilePicture"
+    android:background="@color/purple_200">
+
+    <TextView
+        android:id="@+id/imgText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="10dp"
+        android:text="Cookie"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgText"
+        app:layout_constraintBottom_toTopOf="@id/currentPic">
+
+        <Button
+            android:id="@+id/blueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:backgroundTint="@color/purple_500"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:id="@+id/tealButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:backgroundTint="@color/teal_200"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:id="@+id/whiteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:backgroundTint="@color/white"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:id="@+id/blackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:backgroundTint="@color/black"
+            style="?android:attr/buttonBarButtonStyle" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/currentPic"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintHeight_percent="0.4"
+        android:layout_marginHorizontal="50dp"
+        android:src="@drawable/ic_baseline_cookie_24"
+        android:background="#20000000"/>
+
+    <LinearLayout
+        android:id="@+id/iconLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentPic"
+        app:layout_constraintBottom_toTopOf="@id/saveChanges">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/cookieIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/ic_baseline_cookie_24" />
+            <ImageView
+                android:id="@+id/bunnyIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/ic_baseline_cruelty_free_24" />
+            <ImageView
+                android:id="@+id/cakeIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/ic_baseline_cake_24"/>
+
+            <ImageView
+                android:id="@+id/fireIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/ic_baseline_whatshot_24" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/curlyIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/ic_baseline_face_2"/>
+            <ImageView
+                android:id="@+id/straightIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/ic_baseline_face_3_24"/>
+            <ImageView
+                android:id="@+id/baldIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/ic_baseline_face_5_24"/>
+            <ImageView
+                android:id="@+id/hairIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_weight="0.25"
+                android:src="@drawable/ic_baseline_face_6_24"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/saveChanges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iconLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Save Changes"
+        android:layout_marginBottom="75dp"/>
+
+    <include layout="@layout/bottom_toolbar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
