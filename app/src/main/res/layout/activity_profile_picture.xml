@@ -97,10 +97,10 @@
                 android:src="@drawable/ic_baseline_cookie_24" />
             <ImageView
                 android:id="@+id/bunnyIcon"
-                android:layout_width="wrap_content"
+                android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_weight="0.25"
-                tools:srcCompat="@drawable/ic_baseline_cruelty_free_24" />
+                android:src="@drawable/ic_baseline_cruelty_free_24" />
             <ImageView
                 android:id="@+id/cakeIcon"
                 android:layout_width="75dp"
@@ -158,7 +158,7 @@
         app:layout_constraintTop_toBottomOf="@id/iconLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="Save Changes"
-        android:layout_marginBottom="100dp"/>
+        android:layout_marginBottom="75dp"/>
 
     <include layout="@layout/bottom_toolbar" />
 

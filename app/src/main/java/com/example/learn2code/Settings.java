@@ -1,12 +1,16 @@
 package com.example.learn2code;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,9 +18,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Connection;
 
@@ -35,9 +45,12 @@ public class Settings extends CommonMethods {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        FirebaseApp.initializeApp(this);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
+        ImageView profilePicture = findViewById(R.id.profilePicture);
+        profilePicture.setImageDrawable(null);
         EditText usernameEt = findViewById(R.id.editUsername);
         Button changeName = findViewById(R.id.usernameButton);
 
@@ -46,14 +59,28 @@ public class Settings extends CommonMethods {
         Button loginButton = findViewById(R.id.loginButton);
 
         Button profilePicBtn = findViewById(R.id.changeProfPic);
+        Button accountBtn = findViewById(R.id.accountBtn);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         GoogleSignInClient gsc = GoogleSignIn.getClient(this, gso);
 
-        if (user!=null){
+        if (user != null) {
             username.setText(user.getDisplayName());
+            Uri photoUrl = user.getPhotoUrl();
+            if (photoUrl != null) {
+                String resourceName = photoUrl.toString();
+                int resourceId = getResources().getIdentifier(resourceName, "drawable", getPackageName());
+                accountBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(Settings.this, resourceName, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                if (resourceId != 0) {
+                    profilePicture.setImageResource(resourceId);
+                }
+            }
         }
-
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct!=null) {
@@ -81,7 +108,6 @@ public class Settings extends CommonMethods {
                         startActivity(intent);
                     } else if (acct != null) {
                         Toast.makeText(Settings.this, "Please change display name on your google account.", Toast.LENGTH_LONG).show();
-
                     }
                     else {
                         Toast.makeText(Settings.this, "Something went wrong.", Toast.LENGTH_LONG).show();
@@ -112,7 +138,15 @@ public class Settings extends CommonMethods {
             }
         });
 
-        profilePicBtn.setOnClickListener(v -> startActivity(new Intent(Settings.this, ProfilePicture.class)));
+        profilePicBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent = new Intent(getApplicationContext(), ProfilePicture.class);
+                startActivity(intent);
+            }
+        });
+//        profilePicBtn.setOnClickListener(v -> startActivity(new Intent(Settings.this, ProfilePicture.class)));
     }
 
     private void signOut(GoogleSignInClient gsc) {
