@@ -71,7 +71,7 @@
         android:layout_marginTop="10dp"
         android:text=" @test_user"/>
     <TextView
-        android:id="@+id/xp"
+        android:id="@+id/xpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/username"
@@ -88,7 +88,7 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="362dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/xp"
+        app:layout_constraintTop_toBottomOf="@id/xpText"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp">
         <LinearLayout

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.learn2code.data.XPDatabase;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -39,6 +40,8 @@ public class Settings extends CommonMethods {
 
     FirebaseAuth auth;
     FirebaseUser user;
+    private XPDatabase xphandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,12 @@ public class Settings extends CommonMethods {
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         GoogleSignInClient gsc = GoogleSignIn.getClient(this, gso);
+
+        xphandler = new XPDatabase(Settings.this);
+        TextView xpText = findViewById(R.id.xpText);
+
+        int xp = xphandler.getXP("xp"); // get current xp value
+        xpText.setText(xp + "xp");
 
         if (user != null) {
             username.setText(user.getDisplayName());
