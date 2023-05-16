@@ -18,6 +18,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Register extends AppCompatActivity {
 
@@ -95,9 +100,30 @@ public class Register extends AppCompatActivity {
 
     private void setUsername() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(usernameText).build();
-        assert user != null;
-        user.updateProfile(profileUpdates);
+
+        String userId = user.getUid();
+        DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("displayName");
+        dataRef.setValue(usernameText);
+        // Set the ValueEventListener to retrieve the "xp" value
+        dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Retrieve the "xp" value from the dataSnapshot
+                String userName = dataSnapshot.getValue(String.class);
+
+//                Toast.makeText(Register.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle the error, if any
+//                Toast.makeText(Register.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//               UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(usernameText).build();
+//        assert user != null;
+//        user.updateProfile(profileUpdates);
         Intent intent = new Intent(getApplicationContext(), Settings.class);
         startActivity(intent);
         finish();

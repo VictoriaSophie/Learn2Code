@@ -53,8 +53,6 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
     FirebaseAuth auth;
     FirebaseUser user;
     String userName;
-    String passStatus;
-    String userXP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -179,6 +177,7 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
             // add 50 xp
             xp +=50;
             xphandler.saveXP("xp", xp); // changes xp
+
 //            if (user != null) {
 //                String userId = user.getUid();
 //                String userName = user.getDisplayName();
@@ -187,32 +186,38 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
 //                String userXP = dataRef.child("users").child(userId).child("xp").getValue();
 //                Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT ).show();
 //            }
-//            if (user != null) {
-//                String userId = user.getUid();
+            if (user != null) {
+                String userId = user.getUid();
 //                userName = user.getDisplayName();
-//                DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
-//                // Set the ValueEventListener to retrieve the "xp" value
-//                dataRef.child("users").child(userId).child("xp").addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        // Retrieve the "xp" value from the dataSnapshot
-//                        String userXP = dataSnapshot.getValue(String.class);
-//
-//                        // Display the retrieved data
-//                        Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//                        // Handle the error, if any
-//                        Toast.makeText(StandardQuiz.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
+                DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("xp");
+                dataRef.setValue(xp);
+                // Set the ValueEventListener to retrieve the "xp" value
+                dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Long userXP = dataSnapshot.getValue(Long.class);
+
+//                        new AlertDialog.Builder(StandardQuiz.this)
+//                                .setTitle(passStatus)
+//                                .setMessage("User: " + userName + ", XP: " + userXP)
+////                .setMessage("Score is " + score + " out of " + totalQuestions + "\n" + "Your current XP is: " + xp)
+//                                .setPositiveButton("Restart", (dialogInterface, i) -> restartQuiz())
+//                                .setCancelable(false)
+//                                .show();
+
+                        Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Toast.makeText(StandardQuiz.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
 
-//            } else {
-//                Toast.makeText(this, "User is null", Toast.LENGTH_SHORT).show();
-//            }
+            } else {
+                Toast.makeText(this, "User is null", Toast.LENGTH_SHORT).show();
+            }
 
 
 
@@ -220,13 +225,7 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
             passStatus = "Failed";
         }
 
-        new AlertDialog.Builder(this)
-                .setTitle(passStatus)
-//                .setMessage("User: " + userName + ", XP: " + userXP)
-                .setMessage("Score is " + score + " out of " + totalQuestions + "\n" + "Your current XP is: " + xp)
-                .setPositiveButton("Restart", (dialogInterface, i) -> restartQuiz())
-                .setCancelable(false)
-                .show();
+
     }
 
 

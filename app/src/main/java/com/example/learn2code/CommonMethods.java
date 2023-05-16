@@ -27,6 +27,11 @@ public abstract class CommonMethods extends AppCompatActivity {
                 startActivity(i);
                 return true;
             }
+            if (item.getItemId() == R.id.leaderboard) {
+                Intent i = new Intent(CommonMethods.this, Leaderboard.class);
+                startActivity(i);
+                return true;
+            }
             return false;
         });
 
