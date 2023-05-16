@@ -1,16 +1,11 @@
 package com.example.learn2code;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,7 +31,6 @@ public class LogIn extends AppCompatActivity {
         super.onStart();
         // check if user is signed in
         FirebaseUser currentUser = mAuth.getCurrentUser();
-//        updateUI(currentUser);
         if (currentUser!= null) {
             Intent intent = new Intent(getApplicationContext(), Settings.class);
             startActivity(intent);
@@ -59,7 +53,6 @@ public class LogIn extends AppCompatActivity {
         Button registerButton = findViewById(R.id.registerButton);
 
         loginButton.setOnClickListener(view -> {
-//              signIn(email, password);
             String emailText = String.valueOf(emailEt.getText());
             String passwordText = String.valueOf(passwordEt.getText());
             if (TextUtils.isEmpty(emailText)){
@@ -76,81 +69,22 @@ public class LogIn extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
                                 Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(getApplicationContext(), Settings.class);
                                 startActivity(intent);
                                 finish();
                             } else {
-                                // If sign in fails, display a message to the user.
                                 Toast.makeText(LogIn.this, "Authentication failed", Toast.LENGTH_LONG).show();
 
                             }
 
-                            // ...
                         }
                     });
-
-
-
-//            if(email.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-//                Toast.makeText(LogIn.this, "Correct email and password", Toast.LENGTH_SHORT).show();
-//            }
-//            else{
-//                Toast.makeText(LogIn.this, "Wrong", Toast.LENGTH_SHORT).show();
-//            }
         });
 
         registerButton.setOnClickListener(view -> startActivity(new Intent(LogIn.this, Register.class)));
     }
 
-//    private void signIn(String email, String password) {
-//        mAuth.signInWithEmailAndPassword(email, password)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success, update UI with the signed-in user's information
-//                            Log.d(TAG, "signInWithEmail:success");
-//                            FirebaseUser user = mAuth.getCurrentUser();
-//                            userInfo(user);
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-//                            Toast.makeText(LogIn.this, "Authentication failed.",
-//                                    Toast.LENGTH_SHORT).show();
-//                            userInfo(null);
-//                        }
-//
-//                        // ...
-//                    }
-//                });
-//    }
-
-    private void userInfo(FirebaseUser user) {
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // Name, email address, and profile photo Url
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-            Toast.makeText(LogIn.this, name + " " + email, Toast.LENGTH_LONG).show();
-
-            // Check if user's email is verified
-            boolean emailVerified = user.isEmailVerified();
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getIdToken() instead.
-            String uid = user.getUid();
-        }
-        else {
-            Toast.makeText(this, "user is null", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    // to-do: set up so confirm button comes up to ask user to confirm username etc and change if they want if first time using google sign in
     private void socialMediaAccLinks() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         GoogleSignInClient gsc = GoogleSignIn.getClient(this, gso);

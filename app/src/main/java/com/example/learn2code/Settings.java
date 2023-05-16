@@ -29,9 +29,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-//import DBHandler;
-
-
 public class Settings extends CommonMethods {
 
     FirebaseAuth auth;

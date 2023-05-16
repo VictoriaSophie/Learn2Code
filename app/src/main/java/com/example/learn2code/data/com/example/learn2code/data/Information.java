@@ -1,7 +1,5 @@
 package com.example.learn2code.data;
 
-import android.widget.Button;
-
 import com.example.learn2code.R;
 
 public class Information {
@@ -108,8 +106,5 @@ public class Information {
             {"", "", ""}, // js basics
             {"", "", ""}, // js 1
             {"", "", ""} // js 2
-
-            // css card 3: https://www.w3schools.com/colors/colors_names.asp
-
     };
 }

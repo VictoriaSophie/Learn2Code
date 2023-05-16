@@ -42,7 +42,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:outlineSpotShadowColor="#00FFFFFF"
+                app:cardElevation="0dp"
                 app:cardBackgroundColor="#00FFFFFF">
 
                 <LinearLayout
@@ -54,7 +54,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardBackgroundColor="#00000000"
-                        android:outlineSpotShadowColor="#00000000"
+                        app:cardElevation="0dp"
                         android:layout_weight="1"/>
 
                     <ImageView
@@ -112,7 +112,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:outlineSpotShadowColor="#00FFFFFF"
+                app:cardElevation="0dp"
                 app:cardBackgroundColor="#00FFFFFF">
 
                 <LinearLayout
@@ -171,7 +171,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:outlineSpotShadowColor="#00FFFFFF"
+                app:cardElevation="0dp"
                 app:cardBackgroundColor="#00FFFFFF">
 
                 <LinearLayout
@@ -184,7 +184,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         app:cardBackgroundColor="#00000000"
-                        android:outlineSpotShadowColor="#00000000"
+                        app:cardElevation="0dp"
                         android:layout_weight="1"/>
 
                     <ImageView
@@ -292,7 +292,6 @@
                             android:textColor="@color/white" />
 
                     </LinearLayout>
-                    <!--        hex code for background    #BB86FC-->
 
                 </androidx.cardview.widget.CardView>
 
@@ -329,6 +328,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:layout_gravity="center"
                                 android:src="@drawable/ic_baseline_whatshot_24" />
 
                             <TextView
@@ -336,7 +336,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="Username"
                                 android:textColor="@color/white" />
 
@@ -345,7 +345,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="1000xp"
                                 android:textColor="@color/white" />
                         </LinearLayout>
@@ -387,6 +387,7 @@
                                 android:id="@+id/profilePic5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:layout_gravity="center"
                                 android:layout_weight="1"
                                 android:src="@drawable/ic_baseline_whatshot_24" />
 
@@ -395,7 +396,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="Username"
                                 android:textColor="@color/white" />
 
@@ -404,7 +405,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="1000xp"
                                 android:textColor="@color/white" />
                         </LinearLayout>
@@ -446,6 +447,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:layout_gravity="center"
                                 android:src="@drawable/ic_baseline_whatshot_24" />
 
                             <TextView
@@ -453,7 +455,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="Username"
                                 android:textColor="@color/white" />
 
@@ -462,7 +464,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="1000xp"
                                 android:textColor="@color/white" />
                         </LinearLayout>
@@ -504,6 +506,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:layout_gravity="center"
                                 android:src="@drawable/ic_baseline_whatshot_24" />
 
                             <TextView
@@ -511,7 +514,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="Username"
                                 android:textColor="@color/white" />
 
@@ -520,7 +523,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="1000xp"
                                 android:textColor="@color/white" />
                         </LinearLayout>
@@ -561,6 +564,7 @@
                                 android:id="@+id/profilePic8"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:layout_gravity="center"
                                 android:layout_weight="1"
                                 android:src="@drawable/ic_baseline_whatshot_24" />
 
@@ -569,7 +573,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="Username"
                                 android:textColor="@color/white" />
 
@@ -578,7 +582,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="1000xp"
                                 android:textColor="@color/white" />
                         </LinearLayout>
@@ -620,14 +624,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:src="@drawable/ic_baseline_whatshot_24" />
+                                android:src="@drawable/ic_baseline_whatshot_24"
+                                android:layout_gravity="center"/>
 
                             <TextView
                                 android:id="@+id/username9"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="Username"
                                 android:textColor="@color/white" />
 
@@ -636,7 +641,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="1000xp"
                                 android:textColor="@color/white" />
                         </LinearLayout>
@@ -679,14 +684,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:src="@drawable/ic_baseline_whatshot_24" />
+                                android:src="@drawable/ic_baseline_whatshot_24"
+                                android:layout_gravity="center"/>
 
                             <TextView
                                 android:id="@+id/username10"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="Username"
                                 android:textColor="@color/white" />
 
@@ -695,7 +701,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:text="1000xp"
                                 android:textColor="@color/white" />
                         </LinearLayout>
