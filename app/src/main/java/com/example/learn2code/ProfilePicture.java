@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfilePicture extends CommonMethods {
 
@@ -63,12 +65,14 @@ public class ProfilePicture extends CommonMethods {
         saveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri path = Uri.parse(currentPicRes);
-                String imgPath = path.toString();
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setPhotoUri(Uri.parse(imgPath)).build();
-                assert user != null;
-                user.updateProfile(profileUpdates);
+                DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()); // get user uid
+                userRef.child("profilePicture").setValue(currentPicRes);
+//                Uri path = Uri.parse(currentPicRes);
+//                String imgPath = path.toString();
+//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setPhotoUri(Uri.parse(imgPath)).build();
+//                assert user != null;
+//                user.updateProfile(profileUpdates);
 
                 Intent intent = new Intent(getApplicationContext(), Settings.class);
                 startActivity(intent);

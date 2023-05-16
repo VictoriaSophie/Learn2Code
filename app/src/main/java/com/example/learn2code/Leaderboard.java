@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class Leaderboard extends CommonMethods {
     TextView currentPosition;
     TextView username1, username2, username3, username4, username5, username6, username7, username8, username9, username10;
     TextView xp1, xp2, xp3, xp4, xp5, xp6, xp7, xp8, xp9, xp10;
+    ImageView profPic1, profPic2, profPic3, profPic4, profPic5, profPic6, profPic7, profPic8, profPic9, profPic10;
     String userId;
     DatabaseReference dataRef;
     private XPDatabase xphandler;
@@ -70,6 +72,16 @@ public class Leaderboard extends CommonMethods {
         xp8 = findViewById(R.id.xp8);
         xp9 = findViewById(R.id.xp9);
         xp10 = findViewById(R.id.xp10);
+        profPic1 = findViewById(R.id.profilePic1);
+        profPic2 = findViewById(R.id.profilePic2);
+        profPic3 = findViewById(R.id.profilePic3);
+        profPic4 = findViewById(R.id.profilePic4);
+        profPic5 = findViewById(R.id.profilePic5);
+        profPic6 = findViewById(R.id.profilePic6);
+        profPic7 = findViewById(R.id.profilePic7);
+        profPic8 = findViewById(R.id.profilePic8);
+        profPic9 = findViewById(R.id.profilePic9);
+        profPic10 = findViewById(R.id.profilePic10);
         getXpData();
         findUsers();
 
@@ -93,7 +105,16 @@ public class Leaderboard extends CommonMethods {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String displayName = snapshot.child("displayName").getValue(String.class);
                             long userXp = snapshot.child("xp").getValue(Long.class);
-                            displayUser(position, displayName, userXp);
+//                            String userUid = snapshot.child("uid").getValue(String.class);
+                            String userProfPic = snapshot.child("profilePicture").getValue(String.class);
+                            int profPicInt = 0;
+                            if (userProfPic != null) {
+                                profPicInt = getResources().getIdentifier(userProfPic, "drawable", getPackageName());
+                            }
+                            if (profPicInt == 0) {
+                                profPicInt = R.drawable.ic_baseline_cake_24;
+                            }
+                            displayUser(position, displayName, userXp, profPicInt);
                         }
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
@@ -111,51 +132,59 @@ public class Leaderboard extends CommonMethods {
 
     }
 
-    private void displayUser(int position, String displayName, long userXp) {
+    private void displayUser(int position, String displayName, long userXp, int userProfPic) {
         switch (position) {
             case 1:
                 username1.setText(displayName);
                 xp1.setText(userXp + "xp");
+                profPic1.setImageResource(userProfPic);
                 break;
             case 2:
                 username2.setText(displayName);
                 xp2.setText(userXp + "xp");
+                profPic2.setImageResource(userProfPic);
                 break;
             case 3:
                 username3.setText(displayName);
                 xp3.setText(userXp + "xp");
+                profPic3.setImageResource(userProfPic);
                 break;
             case 4:
                 username4.setText(displayName);
                 xp4.setText(userXp + "xp");
+                profPic4.setImageResource(userProfPic);
                 break;
             case 5:
                 username5.setText(displayName);
                 xp5.setText(userXp + "xp");
+                profPic5.setImageResource(userProfPic);
                 break;
             case 6:
                 username6.setText(displayName);
                 xp6.setText(userXp + "xp");
+                profPic6.setImageResource(userProfPic);
                 break;
             case 7:
                 username7.setText(displayName);
                 xp7.setText(userXp + "xp");
+                profPic7.setImageResource(userProfPic);
                 break;
             case 8:
                 username8.setText(displayName);
                 xp8.setText(userXp + "xp");
+                profPic8.setImageResource(userProfPic);
                 break;
             case 9:
                 username9.setText(displayName);
                 xp9.setText(userXp + "xp");
+                profPic9.setImageResource(userProfPic);
                 break;
             case 10:
                 username10.setText(displayName);
                 xp10.setText(userXp + "xp");
+                profPic10.setImageResource(userProfPic);
                 break;
         }
-
-
     }
 
     private void getXpData() {

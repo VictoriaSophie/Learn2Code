@@ -47,6 +47,7 @@ public class Settings extends CommonMethods {
     FirebaseUser user;
     private XPDatabase xphandler;
     String newUserName;
+    private String fbProfilePic;
 
 
     @Override
@@ -98,20 +99,43 @@ public class Settings extends CommonMethods {
             });
 //
 //            username.setText(user.getDisplayName()); // need to change to child displayName
-            Uri photoUrl = user.getPhotoUrl();
-            if (photoUrl != null) {
-                String resourceName = photoUrl.toString();
-                int resourceId = getResources().getIdentifier(resourceName, "drawable", getPackageName());
-                accountBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(Settings.this, resourceName, Toast.LENGTH_SHORT).show();
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String profilePicText = snapshot.child("profilePicture").getValue(String.class);
+                    if (profilePicText !=null) {
+                        int profPicInt = getResources().getIdentifier(profilePicText, "drawable", getPackageName());
+                        if (profPicInt != 0) {
+                            profilePicture.setImageResource(profPicInt);
+                        }
+                    } else {
+                        profilePicture.setImageResource(R.drawable.ic_baseline_whatshot_24);
                     }
-                });
-                if (resourceId != 0) {
-                    profilePicture.setImageResource(resourceId);
                 }
-            }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+
+//            Uri photoUrl = user.getPhotoUrl();
+//            if (photoUrl != null) {
+//                String resourceName = photoUrl.toString();
+//                int resourceId = getResources().getIdentifier(resourceName, "drawable", getPackageName());
+//                accountBtn.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(Settings.this, resourceName, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                if (resourceId != 0) {
+//                    profilePicture.setImageResource(resourceId);
+//                }
+
         }
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
