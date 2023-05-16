@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -35,21 +36,20 @@ public class Leaderboard extends CommonMethods {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         getXpData();
-        currentPosition = findViewById(R.id.currentText);
-        currentPosition.setText("xp: " + xp);
-
 
 
     }
 
     private void getXpData() {
-        DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("xp");
+        String userId = user.getUid();
+        DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("xp");
         if (user != null) {
             dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Retrieve the "xp" value from the dataSnapshot
                     xp = dataSnapshot.getValue(Long.class);
+                    displayXp();
 
                     // Display the retrieved data
 //                    Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
@@ -64,8 +64,14 @@ public class Leaderboard extends CommonMethods {
 
         } else {
             xp = (long) XPDatabase.getXP("xp");
+            displayXp();
         }
 
+    }
+
+    private void displayXp() {
+        currentPosition = findViewById(R.id.currentText);
+        currentPosition.setText("xp: " + xp);
     }
 
     @Override
