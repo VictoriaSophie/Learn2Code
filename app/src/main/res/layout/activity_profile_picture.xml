@@ -12,54 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/buttonLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="10dp"
-        android:text="Cookie"
+        android:text="Profile Picture"
         android:textSize="20sp"
         android:textStyle="bold"/>
-
-    <LinearLayout
-        android:id="@+id/buttonLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgText"
-        app:layout_constraintBottom_toTopOf="@id/currentPic">
-
-        <Button
-            android:id="@+id/blueButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:backgroundTint="@color/purple_500"
-            style="?android:attr/buttonBarButtonStyle" />
-        <Button
-            android:id="@+id/tealButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:backgroundTint="@color/teal_200"
-            style="?android:attr/buttonBarButtonStyle" />
-        <Button
-            android:id="@+id/whiteButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:backgroundTint="@color/white"
-            style="?android:attr/buttonBarButtonStyle" />
-        <Button
-            android:id="@+id/blackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:backgroundTint="@color/black"
-            style="?android:attr/buttonBarButtonStyle" />
-
-
-    </LinearLayout>
 
     <ImageView
         android:id="@+id/currentPic"
@@ -67,8 +25,8 @@
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgText"
+        app:layout_constraintBottom_toTopOf="@id/iconLayout"
         app:layout_constraintVertical_bias="0.25"
         app:layout_constraintHeight_percent="0.4"
         android:layout_marginHorizontal="50dp"

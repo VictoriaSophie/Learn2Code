@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfilePicture extends CommonMethods {
 
-    Button blueButton, tealButton, whiteButton, blackButton, saveChanges;
+    Button saveChanges;
     ImageView cookieIcon, bunnyIcon, cakeIcon, fireIcon, curlyIcon, straightIcon, baldIcon, hairIcon, currentPic;
     String currentPicRes;
 
@@ -32,10 +32,6 @@ public class ProfilePicture extends CommonMethods {
         super.onCreate(savedInstanceState);
         getLayoutResource();
 
-        blueButton = findViewById(R.id.blueButton);
-        tealButton = findViewById(R.id.tealButton);
-        whiteButton = findViewById(R.id.whiteButton);
-        blackButton = findViewById(R.id.blackButton);
         cookieIcon = findViewById(R.id.cookieIcon);
         bunnyIcon = findViewById(R.id.bunnyIcon);
         cakeIcon = findViewById(R.id.cakeIcon);
@@ -46,10 +42,6 @@ public class ProfilePicture extends CommonMethods {
         hairIcon = findViewById(R.id.hairIcon);
         currentPic = findViewById(R.id.currentPic);
 
-        blueButton.setOnClickListener(clickListener);
-        tealButton.setOnClickListener(clickListener);
-        whiteButton.setOnClickListener(clickListener);
-        blackButton.setOnClickListener(clickListener);
         cookieIcon.setOnClickListener(clickListener);
         bunnyIcon.setOnClickListener(clickListener);
         cakeIcon.setOnClickListener(clickListener);
@@ -67,13 +59,6 @@ public class ProfilePicture extends CommonMethods {
             public void onClick(View v) {
                 DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()); // get user uid
                 userRef.child("profilePicture").setValue(currentPicRes);
-//                Uri path = Uri.parse(currentPicRes);
-//                String imgPath = path.toString();
-//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setPhotoUri(Uri.parse(imgPath)).build();
-//                assert user != null;
-//                user.updateProfile(profileUpdates);
-
                 Intent intent = new Intent(getApplicationContext(), Settings.class);
                 startActivity(intent);
                 finish();
@@ -102,19 +87,6 @@ public class ProfilePicture extends CommonMethods {
     View.OnClickListener clickListener = new View.OnClickListener() {
         public void onClick(View view) {
             switch(view.getId()) {
-                case R.id.blueButton:
-                    currentPic.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.purple_500));
-                    break;
-                case R.id.tealButton:
-                    currentPic.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.teal_200));
-                    break;
-                case R.id.whiteButton:
-                    currentPic.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                    break;
-                case R.id.blackButton:
-                    currentPic.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
-                    break;
-                    // images
                 case R.id.cookieIcon:
                     currentPic.setImageResource(R.drawable.ic_baseline_cookie_24);
                     currentPicRes = "ic_baseline_cookie_24";
