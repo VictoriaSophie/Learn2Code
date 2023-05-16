@@ -187,9 +187,9 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
 //                Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT ).show();
 //            }
             if (user != null) {
-//                String userId = user.getUid();
+                String userId = user.getUid();
                 userName = user.getDisplayName();
-                DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("xp");
+                DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("xp");
                 dataRef.setValue(xp);
                 // Set the ValueEventListener to retrieve the "xp" value
                 dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
