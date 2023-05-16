@@ -188,14 +188,13 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
 //            }
             if (user != null) {
                 String userId = user.getUid();
-                userName = user.getDisplayName();
+//                userName = user.getDisplayName();
                 DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("xp");
                 dataRef.setValue(xp);
                 // Set the ValueEventListener to retrieve the "xp" value
                 dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        // Retrieve the "xp" value from the dataSnapshot
                         Long userXP = dataSnapshot.getValue(Long.class);
 
 //                        new AlertDialog.Builder(StandardQuiz.this)
@@ -206,13 +205,11 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
 //                                .setCancelable(false)
 //                                .show();
 
-                        // Display the retrieved data
                         Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        // Handle the error, if any
                         Toast.makeText(StandardQuiz.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
