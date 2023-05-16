@@ -53,6 +53,8 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
     FirebaseAuth auth;
     FirebaseUser user;
     String userName;
+    private long userXP;
+    private String passStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,62 +172,50 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
     }
 
     private void finishQuiz() {
-        String passStatus =  "";
+        passStatus =  "";
         int xp = xphandler.getXP("xp"); // get current xp value
         if (score > totalQuestions*0.60) {
             passStatus = "Passed";
             // add 50 xp
             xp +=50;
             xphandler.saveXP("xp", xp); // changes xp
-
-//            if (user != null) {
-//                String userId = user.getUid();
-//                String userName = user.getDisplayName();
-//                DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
-//                dataRef.child("users").child(userId).child("xp").setValue(xp);
-//                String userXP = dataRef.child("users").child(userId).child("xp").getValue();
-//                Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT ).show();
-//            }
-            if (user != null) {
-                String userId = user.getUid();
-//                userName = user.getDisplayName();
-                DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("xp");
-                dataRef.setValue(xp);
-                // Set the ValueEventListener to retrieve the "xp" value
-                dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Long userXP = dataSnapshot.getValue(Long.class);
-
-//                        new AlertDialog.Builder(StandardQuiz.this)
-//                                .setTitle(passStatus)
-//                                .setMessage("User: " + userName + ", XP: " + userXP)
-////                .setMessage("Score is " + score + " out of " + totalQuestions + "\n" + "Your current XP is: " + xp)
-//                                .setPositiveButton("Restart", (dialogInterface, i) -> restartQuiz())
-//                                .setCancelable(false)
-//                                .show();
-
-                        Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(StandardQuiz.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-            } else {
-                Toast.makeText(this, "User is null", Toast.LENGTH_SHORT).show();
-            }
-
-
-
         }else{
             passStatus = "Failed";
         }
+        if (user != null) {
+            String userId = user.getUid();
+            DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("xp");
+            dataRef.setValue(xp);
+            // Set the ValueEventListener to retrieve the "xp" value
+            dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    userXP = dataSnapshot.getValue(Long.class);
+                    displayMessage();
 
+//                        Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
+                }
 
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(StandardQuiz.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        } else {
+            userXP = xp;
+            displayMessage();
+        }
+    }
+
+    private void displayMessage() {
+        new AlertDialog.Builder(StandardQuiz.this)
+                .setTitle(passStatus)
+                .setMessage("Current XP: " + userXP)
+//                .setMessage("Score is " + score + " out of " + totalQuestions + "\n" + "Your current XP is: " + xp)
+                .setPositiveButton("Restart", (dialogInterface, i) -> restartQuiz())
+                .setCancelable(false)
+                .show();
     }
 
 
