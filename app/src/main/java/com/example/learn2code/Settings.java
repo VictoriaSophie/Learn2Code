@@ -1,9 +1,6 @@
 package com.example.learn2code;
 
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -26,29 +23,21 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.sql.Connection;
 
 //import DBHandler;
 
 
 public class Settings extends CommonMethods {
-//    Connection connect;
-//    String ConnectionResult="";
 
     FirebaseAuth auth;
     FirebaseUser user;
     private XPDatabase xphandler;
     String newUserName;
-    private String fbProfilePic;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +58,6 @@ public class Settings extends CommonMethods {
         Button loginButton = findViewById(R.id.loginButton);
 
         Button profilePicBtn = findViewById(R.id.changeProfPic);
-        Button accountBtn = findViewById(R.id.accountBtn);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         GoogleSignInClient gsc = GoogleSignIn.getClient(this, gso);
@@ -119,22 +107,6 @@ public class Settings extends CommonMethods {
 
                 }
             });
-
-
-
-//            Uri photoUrl = user.getPhotoUrl();
-//            if (photoUrl != null) {
-//                String resourceName = photoUrl.toString();
-//                int resourceId = getResources().getIdentifier(resourceName, "drawable", getPackageName());
-//                accountBtn.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Toast.makeText(Settings.this, resourceName, Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                if (resourceId != 0) {
-//                    profilePicture.setImageResource(resourceId);
-//                }
 
         }
 
@@ -208,7 +180,6 @@ public class Settings extends CommonMethods {
                 startActivity(intent);
             }
         });
-//        profilePicBtn.setOnClickListener(v -> startActivity(new Intent(Settings.this, ProfilePicture.class)));
     }
 
     private void signOut(GoogleSignInClient gsc) {
