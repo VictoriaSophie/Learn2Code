@@ -1,12 +1,5 @@
 package com.example.learn2code.data;
 
-import android.content.Context;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-
 public class Questions {
     public static String question[] = {
             // programming basics

@@ -1,26 +1,17 @@
 package com.example.learn2code;
 
-import static android.content.ContentValues.TAG;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learn2code.data.Questions;
 import com.example.learn2code.data.XPDatabase;
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,10 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.Map;
 
 public class StandardQuiz extends CommonMethods implements View.OnClickListener {
 
@@ -52,15 +40,12 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
 
     FirebaseAuth auth;
     FirebaseUser user;
-    String userName;
     private long userXP;
     private String passStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_standard_quiz);
-//        setAppBar();
         FirebaseApp.initializeApp(this);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -187,18 +172,18 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
             DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference("users").child(userId).child("xp");
             dataRef.setValue(xp);
             // Set the ValueEventListener to retrieve the "xp" value
+            int finalXp = xp;
             dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     userXP = dataSnapshot.getValue(Long.class);
                     displayMessage();
-
-//                        Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    Toast.makeText(StandardQuiz.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    userXP = finalXp;
+                    displayMessage();
                 }
             });
 
@@ -212,7 +197,6 @@ public class StandardQuiz extends CommonMethods implements View.OnClickListener 
         new AlertDialog.Builder(StandardQuiz.this)
                 .setTitle(passStatus)
                 .setMessage("Current XP: " + userXP)
-//                .setMessage("Score is " + score + " out of " + totalQuestions + "\n" + "Your current XP is: " + xp)
                 .setPositiveButton("Restart", (dialogInterface, i) -> restartQuiz())
                 .setCancelable(false)
                 .show();

@@ -292,7 +292,6 @@
                             android:textColor="@color/white" />
 
                     </LinearLayout>
-                    <!--        hex code for background    #BB86FC-->
 
                 </androidx.cardview.widget.CardView>
 

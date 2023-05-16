@@ -1,9 +1,7 @@
 package com.example.learn2code;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,8 +9,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.learn2code.data.XPDatabase;
-import com.google.android.gms.games.Games;
-import com.google.android.gms.games.LeaderboardsClient;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,12 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.auth.User;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Leaderboard extends CommonMethods {
 
@@ -105,7 +95,6 @@ public class Leaderboard extends CommonMethods {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String displayName = snapshot.child("displayName").getValue(String.class);
                             long userXp = snapshot.child("xp").getValue(Long.class);
-//                            String userUid = snapshot.child("uid").getValue(String.class);
                             String userProfPic = snapshot.child("profilePicture").getValue(String.class);
                             int profPicInt = 0;
                             if (userProfPic != null) {
@@ -195,15 +184,11 @@ public class Leaderboard extends CommonMethods {
                     // Retrieve the "xp" value from the dataSnapshot
                     xp = dataSnapshot.getValue(Long.class);
                     displayXp();
-
-                    // Display the retrieved data
-//                    Toast.makeText(StandardQuiz.this, "User: " + userName + ", XP: " + userXP, Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    // Handle the error, if any
-//                    Toast.makeText(StandardQuiz.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Leaderboard.this, "Failed to retrieve data: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
 
